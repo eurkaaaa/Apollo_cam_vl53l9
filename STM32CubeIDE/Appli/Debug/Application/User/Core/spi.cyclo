@@ -1,0 +1,5 @@
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2909:22:LL_APB2_GRP1_EnableClock	1
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2997:22:LL_APB2_GRP1_DisableClock	1
+D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/spi.c:30:6:MX_SPI5_Init	2
+D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/spi.c:72:6:HAL_SPI_MspInit	3
+D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/spi.c:105:6:HAL_SPI_MspDeInit	2

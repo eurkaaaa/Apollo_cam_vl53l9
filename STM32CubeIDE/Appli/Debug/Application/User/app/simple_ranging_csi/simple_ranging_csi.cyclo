@@ -1,0 +1,3 @@
+../Application/User/app/simple_ranging_csi/simple_ranging_csi.c:37:6:print_frame	4
+../Application/User/app/simple_ranging_csi/simple_ranging_csi.c:69:5:vl53l9_app	13
+../Application/User/app/simple_ranging_csi/simple_ranging_csi.c:160:13:handle_error	1

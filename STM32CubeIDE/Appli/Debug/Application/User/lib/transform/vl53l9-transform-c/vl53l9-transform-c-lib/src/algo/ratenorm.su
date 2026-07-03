@@ -1,0 +1,14 @@
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:56:21:maxf	16	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:184:6:vl53l9_algo_ratenorm_bicubic_resize	145520	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:260:5:vl53l9_algo_ratenorm_compute_norm_maps	48	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:435:5:vl53l9_algo_ratenorm_compute_rates	56	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:475:14:cubic_kernel	24	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:485:13:modf_custom	32	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:491:17:clamp	24	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:495:6:crop	40	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:508:6:bin	40	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:518:6:matrix_hadamard_product	32	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:526:6:transform	376	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:583:6:pad_array_nn	48	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:594:6:split_str	32	static
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/ratenorm.c:620:6:is_number	24	static

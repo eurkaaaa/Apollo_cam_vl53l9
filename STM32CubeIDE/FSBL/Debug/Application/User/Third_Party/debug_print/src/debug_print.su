@@ -1,0 +1,6 @@
+../../../Drivers/CMSIS/Include/core_cm55.h:4843:26:ITM_SendChar	16	static,ignoring_inline_asm
+../Application/User/Third_Party/debug_print/src/debug_print.c:9:6:debug_print_init	4	static
+../Application/User/Third_Party/debug_print/src/debug_print.c:14:5:_write	32	static
+../Application/User/Third_Party/debug_print/src/debug_print.c:25:6:DWT_Init	4	static,ignoring_inline_asm
+../Application/User/Third_Party/debug_print/src/debug_print.c:33:10:DWT_GetCycles	4	static
+../Application/User/Third_Party/debug_print/src/debug_print.c:37:5:__io_putchar	16	static

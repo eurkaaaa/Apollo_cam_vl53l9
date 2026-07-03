@@ -1,0 +1,5 @@
+../Application/User/lib/vl53l9-utils/src/vl53l9_utils.c:55:6:vl53l9_utils_parse_calib_data	11
+../Application/User/lib/vl53l9-utils/src/vl53l9_utils.c:143:5:vl53l9_utils_parse_frame	2
+../Application/User/lib/vl53l9-utils/src/vl53l9_utils.c:171:5:vl53l9_utils_get_resolution	3
+../Application/User/lib/vl53l9-utils/src/vl53l9_utils.c:196:15:_compute_distance_offset	6
+../Application/User/lib/vl53l9-utils/src/vl53l9_utils.c:232:15:_get_raw_resolution	3

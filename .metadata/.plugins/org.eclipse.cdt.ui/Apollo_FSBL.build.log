@@ -1,0 +1,74 @@
+10:29:54 **** Incremental Build of configuration Debug for project Apollo_FSBL ****
+make -j8 all 
+arm-none-eabi-size  Apollo_FSBL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  73024	     12	   4036	  77072	  12d10	Apollo_FSBL.elf
+Finished building: default.size.stdout
+ 
+cd "D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/FSBL/Debug"
+echo y | "E:/STM32CUBEPROGRAMMER/bin/STM32_SigningTool_CLI.exe" -bin "Apollo_FSBL.bin" -nk -of 0x80000000 -t fsbl -o "Apollo_FSBL-Trusted.bin" -hv 2.3 -dump "Apollo_FSBL-Trusted.bin" -align
+      -------------------------------------------------------------------
+                          STM32 Signing Tool v2.22.0                   
+      -------------------------------------------------------------------
+
+Do you want to replace this file: Apollo_FSBL-Trusted.bin ? (y/n)
+[Header v2.3] Align the payload to the 0x400 offset by adding padding bytes at the beginning of the payload.
+Adding head padding bytes for payload with header v2.3
+Header version 2.3 preparation... 
+Extracting Entry point value from the input file...
+Entry point value : 0x341810fd
+The headred image file generated successfully: Apollo_FSBL-Trusted.bin
+
+Header description:
+
+    Magic: 0x53544d32
+    Signature: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+               00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+               00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    Checksum: 0x7d03ca
+    Header version: 0x20300
+    Size: 0x11f20
+    Load address: 0xffffffff
+    Entry point: 0x341810fd
+    Image version: 0x0
+    Extension: 0x80000000
+
+Pad header detected:
+    Type: 0x5354ffff
+    Size: 0x1a0
+    Padding values: cb c7 93 a6 bc 95 d1 bd b1 9d 33 2a 41 21 60 e6 83 3c 36 1e 3a 8b bf 37 a9 3a 40 b7 9b ed ef 
+
+                    0b db 34 93 1e 48 3f 96 46 f7 3e a1 17 f8 b8 c0 01 49 60 06 36 d8 fd c3 60 68 72 c9 4a ba 84 
+
+                    c9 50 c6 7a c2 67 c1 fd 0f e7 a6 4c 3a 8b 4d 71 81 47 bc c2 56 8f 4a bc 0f 11 7e a5 d3 d4 1b 
+
+                    6e cf e0 5c cb db a4 bd c4 23 c6 71 06 0c 96 4a 0a 41 98 64 6c eb 28 6c eb eb 1c 8a 15 5a 94 
+
+                    32 6c b9 07 58 de cf 26 8d 3e 3c ea 35 51 45 80 4b 64 b7 41 0c 94 8d 12 bb 93 95 63 90 a8 cd 
+
+                    39 fe 82 aa d4 ae 4a a7 d2 b8 c7 57 5c d2 60 ca f8 3e 31 8c 12 cf b6 dc 5a 05 bc f2 62 d6 0b 
+
+                    4e a1 aa 56 9f c6 0d f9 d5 e3 67 b6 70 86 22 61 b4 1f 01 99 8d 68 27 3f 6c a5 cb 2d 20 33 6d 
+
+                    9e b8 08 3c a6 62 a7 1d f5 82 ab 30 b0 af 28 14 62 b4 15 fa 2f b9 ab 8d 84 e8 5f 00 71 1d 29 
+
+                    e4 e9 05 94 fa 8d 0a 91 01 35 7c 9d 43 cc e8 04 5f a1 77 78 d3 ea ba d5 4e ac a3 a2 4d b9 d5 
+
+                    49 c6 9f eb 4f b4 9c 52 2d 23 c9 83 7a 32 87 d6 a4 3d 9e cb 8a 1d 4c e2 69 8a c1 1c c3 c5 d5 
+
+                    07 3c b1 ee d0 b8 e1 38 26 3f 41 84 6b 6e e1 2a d5 a1 66 68 41 0b 79 bb 74 6f 7e f3 f2 7f 15 
+
+                    ae 0d 10 8e 79 bd d7 04 0e 99 f3 dc c2 0c 43 0a 72 9f b1 d0 63 b4 74 40 4d 29 89 bc b2 cf b5 
+
+                    36 40 f6 0b 11 79 d6 7d 
+
+Post header 2.3 information :
+    Binary type: 0x10
+    Non authenticated payload length: 0x0
+    Non authenticated payload hash: 0x0
+
+
+ 
+
+10:29:55 Build Finished. 0 errors, 0 warnings. (took 1s.29ms)
+

@@ -1,0 +1,6 @@
+../Application/User/BSP/src/apollo.c:7:9:BSP_I2C1_WriteReg	40	static
+../Application/User/BSP/src/apollo.c:14:9:BSP_I2C1_ReadReg	40	static
+../Application/User/BSP/src/apollo.c:21:9:BSP_I2C1_WriteReg16	40	static
+../Application/User/BSP/src/apollo.c:28:9:BSP_I2C1_ReadReg16	40	static
+../Application/User/BSP/src/apollo.c:35:9:BSP_I2C1_IsReady	16	static
+../Application/User/BSP/src/apollo.c:41:9:BSP_GetTick	8	static

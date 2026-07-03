@@ -1,0 +1,6 @@
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1407:22:LL_AHB4_GRP1_EnableClock	24	static
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2273:22:LL_APB1_GRP1_EnableClock	24	static
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2403:22:LL_APB1_GRP1_DisableClock	16	static
+../Application/User/Core/i3c.c:34:6:MX_I3C2_Init	32	static
+../Application/User/Core/i3c.c:93:6:HAL_I3C_MspInit	440	static
+../Application/User/Core/i3c.c:210:6:HAL_I3C_MspDeInit	16	static

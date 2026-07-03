@@ -1,0 +1,4 @@
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/confidence.c:26:6:vl53l9_algo_confidence	14
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/confidence.c:76:14:_compute_confidence_with_cover_glass	3
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/confidence.c:87:14:_compute_confidence_without_cover_glass	2
+../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/confidence.c:95:22:_compute_android_format	7
