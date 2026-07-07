@@ -816,6 +816,8 @@ static void CMW_CAMERA_EnableGPIOs(void)
   gpio_init_structure.Mode      = GPIO_MODE_OUTPUT_PP;
   gpio_init_structure.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(XSHUTDOWN_GPIO_Port, &gpio_init_structure);
+
+
 }
 
 /**
@@ -884,22 +886,19 @@ static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params)
     Error_Handler();
   }
 
-//  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &csi_pipe_conf) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &csi_pipe_conf) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
   pPipeConf.FrameRate  = DCMIPP_FRAME_RATE_ALL;
 
-//  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &pPipeConf) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+
 
   pPipeConf.PixelPackerFormat = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
 
   /* Set Pitch for Main and Ancillary Pipes */
-  pPipeConf.PixelPipePitch  = 1280 ; /* Number of bytes */
+  pPipeConf.PixelPipePitch  = initSensors_params->width * 2; /* Number of bytes */
 
   /* Configure Pipe */
   if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE1, &pPipeConf) != HAL_OK)
@@ -907,21 +906,25 @@ static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params)
     Error_Handler();
   }
 
+    if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &pPipeConf) != HAL_OK)
+    {
+      Error_Handler();
+    }
   /* Configure the downsize */
-//  DonwsizeConf.HRatio      = 25656;
-//  DonwsizeConf.VRatio      = 33161;
-//  DonwsizeConf.HSize       = 800;
-//  DonwsizeConf.VSize       = 480;
-//  DonwsizeConf.HDivFactor  = 316;
-//  DonwsizeConf.VDivFactor  = 253;
+//  DonwsizeConf.HRatio      = 65536;
+//  DonwsizeConf.VRatio      = 65536;
+//  DonwsizeConf.HSize       = 320;
+//  DonwsizeConf.VSize       = 240;
+//  DonwsizeConf.HDivFactor  = 256;
+//  DonwsizeConf.VDivFactor  = 256;
 //  DonwsizeConf.HRatio      = 65536;   // 640/640 * 65536
 //  DonwsizeConf.VRatio      = 65536;   // 480/480 * 65536
 //  DonwsizeConf.HSize       = 640;
 //  DonwsizeConf.VSize       = 480;
 //  DonwsizeConf.HDivFactor  = 256;     // 1.0 倍缩放
 //  DonwsizeConf.VDivFactor  = 256;     // 1.0 倍缩放
-//
-//
+
+
 //  if(HAL_DCMIPP_PIPE_SetDownsizeConfig(&hdcmipp, DCMIPP_PIPE1, &DonwsizeConf) != HAL_OK)
 //  {
 //    Error_Handler();

@@ -22,6 +22,7 @@ Application/User/Apollo_Drivers/Micron_Flash_BSP/src/mt25ql512abb.o: \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rcc_ex.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_gpio.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_gpio_ex.h \
+ ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h \
@@ -62,6 +63,7 @@ Application/User/Apollo_Drivers/Micron_Flash_BSP/src/mt25ql512abb.o: \
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rcc_ex.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_gpio.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_gpio_ex.h:
+../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h:

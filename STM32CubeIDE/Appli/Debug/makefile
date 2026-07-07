@@ -27,7 +27,9 @@ RM := rm -rf
 -include Application/User/Third_Party/debug_print/src/subdir.mk
 -include Application/User/Test/src/subdir.mk
 -include Application/User/Startup/subdir.mk
+-include Application/User/Semper_Flash_BSP/Src/subdir.mk
 -include Application/User/STM32_ISP_Library/isp/Src/subdir.mk
+-include Application/User/Micron_Flash_BSP/src/subdir.mk
 -include Application/User/Core/subdir.mk
 -include Application/User/BSP/src/subdir.mk
 -include objects.mk

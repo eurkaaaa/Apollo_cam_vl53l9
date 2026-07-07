@@ -25,7 +25,9 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Application/User/BSP/src \
 Application/User/Core \
+Application/User/Micron_Flash_BSP/src \
 Application/User/STM32_ISP_Library/isp/Src \
+Application/User/Semper_Flash_BSP/Src \
 Application/User/Startup \
 Application/User/Test/src \
 Application/User/Third_Party/debug_print/src \

@@ -1,7 +1,6 @@
 ../Application/User/interface/platform/platform_utils.c:27:12:_timeout_expire	40	static
 ../Application/User/interface/platform/platform_utils.c:34:5:platform_start_csi_pipe	24	static
 ../Application/User/interface/platform/platform_utils.c:42:5:platform_stop_csi_pipe	8	static
-../Application/User/interface/platform/platform_utils.c:49:6:HAL_DCMIPP_PIPE_FrameEventCallback	16	static
 ../Application/User/interface/platform/platform_utils.c:55:5:platform_enable_event	24	static
 ../Application/User/interface/platform/platform_utils.c:74:5:platform_disable_event	24	static
 ../Application/User/interface/platform/platform_utils.c:93:5:platform_acknowledge_event	24	static

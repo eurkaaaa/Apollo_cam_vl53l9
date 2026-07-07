@@ -69,8 +69,8 @@ typedef funcptr funcptr_NS;
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 #define BUFFER_ADDRESS_0  0x34200000U
-#define FRAME_W 640U
-#define FRAME_H 480U
+#define FRAME_W 320U
+#define FRAME_H 240U
 #define BYTES_PER_PIXEL 2U
 #define FRAME_BYTES (FRAME_W * FRAME_H * BYTES_PER_PIXEL)
 /* USER CODE END EM */

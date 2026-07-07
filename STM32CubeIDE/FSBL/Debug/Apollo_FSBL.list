@@ -31,25 +31,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  13 .ARM.attributes 0000003a  00000000  00000000  00013160  2**0
                   CONTENTS, READONLY
- 14 .debug_info   0003b464  00000000  00000000  0001319a  2**0
+ 14 .debug_info   0003c85c  00000000  00000000  0001319a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_abbrev 00004d6f  00000000  00000000  0004e5fe  2**0
+ 15 .debug_abbrev 00004dfa  00000000  00000000  0004f9f6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 00002d68  00000000  00000000  00053370  2**3
+ 16 .debug_aranges 00002d80  00000000  00000000  000547f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 00002300  00000000  00000000  000560d8  2**0
+ 17 .debug_rnglists 00002313  00000000  00000000  00057570  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  00006e1c  00000000  00000000  000583d8  2**0
+ 18 .debug_macro  00006f66  00000000  00000000  00059883  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   00032d16  00000000  00000000  0005f1f4  2**0
+ 19 .debug_line   0003309b  00000000  00000000  000607e9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    00237d03  00000000  00000000  00091f0a  2**0
+ 20 .debug_str    0023f0f7  00000000  00000000  00093884  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  002c9c0d  2**0
+ 21 .comment      00000043  00000000  00000000  002d297b  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  0000b74c  00000000  00000000  002c9c50  2**2
+ 22 .debug_frame  0000b7b8  00000000  00000000  002d29c0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 0000006f  00000000  00000000  002d539c  2**0
+ 23 .debug_line_str 0000006f  00000000  00000000  002de178  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -439,7 +439,7 @@ int main(void)
 3418095c:	f000 fa24 	bl	34180da8 <MX_XSPI1_Init>
   MX_XSPI2_Init();
 34180960:	f000 fa7c 	bl	34180e5c <MX_XSPI2_Init>
-
+  
   HAL_Delay(10);
 34180964:	200a      	movs	r0, #10
 34180966:	f000 ff2d 	bl	341817c4 <HAL_Delay>
@@ -717,41 +717,40 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.IC2Selection.ClockDivider = 2;
 34180af6:	2302      	movs	r3, #2
 34180af8:	62fb      	str	r3, [r7, #44]	@ 0x2c
-  RCC_ClkInitStruct.IC6Selection.ClockSelection = RCC_ICCLKSOURCE_PLL1;
-34180afa:	2300      	movs	r3, #0
-34180afc:	633b      	str	r3, [r7, #48]	@ 0x30
+  RCC_ClkInitStruct.IC6Selection.ClockSelection = RCC_ICCLKSOURCE_PLL2;
+34180afa:	f04f 5380 	mov.w	r3, #268435456	@ 0x10000000
+34180afe:	633b      	str	r3, [r7, #48]	@ 0x30
   RCC_ClkInitStruct.IC6Selection.ClockDivider = 1;
-34180afe:	2301      	movs	r3, #1
-34180b00:	637b      	str	r3, [r7, #52]	@ 0x34
+34180b00:	2301      	movs	r3, #1
+34180b02:	637b      	str	r3, [r7, #52]	@ 0x34
   RCC_ClkInitStruct.IC11Selection.ClockSelection = RCC_ICCLKSOURCE_PLL3;
-34180b02:	f04f 5300 	mov.w	r3, #536870912	@ 0x20000000
-34180b06:	63bb      	str	r3, [r7, #56]	@ 0x38
+34180b04:	f04f 5300 	mov.w	r3, #536870912	@ 0x20000000
+34180b08:	63bb      	str	r3, [r7, #56]	@ 0x38
   RCC_ClkInitStruct.IC11Selection.ClockDivider = 3;
-34180b08:	2303      	movs	r3, #3
-34180b0a:	63fb      	str	r3, [r7, #60]	@ 0x3c
+34180b0a:	2303      	movs	r3, #3
+34180b0c:	63fb      	str	r3, [r7, #60]	@ 0x3c
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct) != HAL_OK)
-34180b0c:	463b      	mov	r3, r7
-34180b0e:	4618      	mov	r0, r3
-34180b10:	f003 ff5e 	bl	341849d0 <HAL_RCC_ClockConfig>
-34180b14:	4603      	mov	r3, r0
-34180b16:	2b00      	cmp	r3, #0
-34180b18:	d001      	beq.n	34180b1e <SystemClock_Config+0x19a>
+34180b0e:	463b      	mov	r3, r7
+34180b10:	4618      	mov	r0, r3
+34180b12:	f003 ff5d 	bl	341849d0 <HAL_RCC_ClockConfig>
+34180b16:	4603      	mov	r3, r0
+34180b18:	2b00      	cmp	r3, #0
+34180b1a:	d001      	beq.n	34180b20 <SystemClock_Config+0x19c>
   {
     Error_Handler();
-34180b1a:	f000 f83a 	bl	34180b92 <Error_Handler>
+34180b1c:	f000 f839 	bl	34180b92 <Error_Handler>
   }
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_5);
-34180b1e:	4a05      	ldr	r2, [pc, #20]	@ (34180b34 <SystemClock_Config+0x1b0>)
-34180b20:	f44f 21e0 	mov.w	r1, #458752	@ 0x70000
-34180b24:	2000      	movs	r0, #0
-34180b26:	f004 f957 	bl	34184dd8 <HAL_RCC_MCOConfig>
+34180b20:	4a04      	ldr	r2, [pc, #16]	@ (34180b34 <SystemClock_Config+0x1b0>)
+34180b22:	f44f 21e0 	mov.w	r1, #458752	@ 0x70000
+34180b26:	2000      	movs	r0, #0
+34180b28:	f004 f956 	bl	34184dd8 <HAL_RCC_MCOConfig>
 }
-34180b2a:	bf00      	nop
-34180b2c:	37d8      	adds	r7, #216	@ 0xd8
-34180b2e:	46bd      	mov	sp, r7
-34180b30:	bd80      	pop	{r7, pc}
-34180b32:	bf00      	nop
+34180b2c:	bf00      	nop
+34180b2e:	37d8      	adds	r7, #216	@ 0xd8
+34180b30:	46bd      	mov	sp, r7
+34180b32:	bd80      	pop	{r7, pc}
 34180b34:	00f00040 	.word	0x00f00040
 
 34180b38 <PeriphCommonClock_Config>:
@@ -37330,7 +37329,7 @@ BOOTStatus_TypeDef CopyApplication(void)
   switch (EXTMEM_GetMapAddress(EXTMEM_LRUN_SOURCE, &MapAddress))
 3418f3f4:	463b      	mov	r3, r7
 3418f3f6:	4619      	mov	r1, r3
-3418f3f8:	2000      	movs	r0, #0
+3418f3f8:	2001      	movs	r0, #1
 3418f3fa:	f000 f9bf 	bl	3418f77c <EXTMEM_GetMapAddress>
 3418f3fe:	4603      	mov	r3, r0
 3418f400:	f1b3 3fff 	cmp.w	r3, #4294967295
@@ -37393,7 +37392,7 @@ BOOTStatus_TypeDef CopyApplication(void)
 3418f44c:	687b      	ldr	r3, [r7, #4]
 3418f44e:	68fa      	ldr	r2, [r7, #12]
 3418f450:	f44f 1180 	mov.w	r1, #1048576	@ 0x100000
-3418f454:	2000      	movs	r0, #0
+3418f454:	2001      	movs	r0, #1
 3418f456:	f000 f913 	bl	3418f680 <EXTMEM_Read>
 3418f45a:	4603      	mov	r3, r0
 3418f45c:	2b00      	cmp	r3, #0

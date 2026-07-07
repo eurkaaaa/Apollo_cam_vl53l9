@@ -46,11 +46,11 @@ int platform_stop_csi_pipe(void) {
     return 0;
 }
 
-void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe) {
-    if (Pipe == DCMIPP_PIPE0) {
-        platform_evt |= PLATFORM_CAM_PIPE_FRAME_EVT;
-    }
-}
+//void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe) {
+//    if (Pipe == DCMIPP_PIPE0) {
+//        platform_evt |= PLATFORM_CAM_PIPE_FRAME_EVT;
+//    }
+//}
 
 int platform_enable_event(platform_event_t plt_evt) {
     uint8_t res = 0;

@@ -46,6 +46,7 @@ MEMORY
 {
   ROM    (xrw)    : ORIGIN = 0x34000400,   LENGTH = 511K
   RAM    (xrw)    : ORIGIN = 0x34080000,   LENGTH = 1280K
+  AXISRAM (xrw)   : ORIGIN = 0x34200000,   LENGTH = 1792K
 }
 
 /* Sections */
@@ -134,6 +135,18 @@ SECTIONS
   _sidata = LOADADDR(.data);
 
   /* Initialized data sections into "RAM" Ram type memory */
+  .dcmipp_framebuffer (NOLOAD) :
+	{
+	  . = ALIGN(32);
+	  __dcmipp_fb_start__ = .;
+	
+	  KEEP(*(.dcmipp_framebuffer))
+	  KEEP(*(.dcmipp_framebuffer*))
+	
+	  . = ALIGN(32);
+	  __dcmipp_fb_end__ = .;
+	} > AXISRAM
+
   .data :
   {
     . = ALIGN(4);

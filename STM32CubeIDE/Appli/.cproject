@@ -131,10 +131,12 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="vl53l9|Application/User/lib|Application/User/interface|Application/User/app|Application/User/vl53l9|Application/User/Third_Party|Application/User/sensors|Application/User/Test|Application/User/STM32_ISP_Library/isp_param_conf|Application/User/STM32_ISP_Library/isp|Application/User/BSP" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Application/User/Semper_Flash_BSP|Application/User/Micron_Flash_BSP|Application/User/Semper_Flash_BSP/Src|Application/User/Micron_Flash_BSP/src|vl53l9|Application/User/lib|Application/User/interface|Application/User/app|Application/User/vl53l9|Application/User/Third_Party|Application/User/sensors|Application/User/Test|Application/User/STM32_ISP_Library/isp_param_conf|Application/User/STM32_ISP_Library/isp|Application/User/BSP" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Application/User/BSP"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Application/User/Micron_Flash_BSP"/>
 						<entry excluding="Src/isp_conf_template.c|USB_Device" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Application/User/STM32_ISP_Library/isp"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Application/User/STM32_ISP_Library/isp_param_conf"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Application/User/Semper_Flash_BSP"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Application/User/Test"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Application/User/Third_Party"/>
 						<entry excluding="simple_ranging|postprocess_csi|postprocess" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Application/User/app"/>

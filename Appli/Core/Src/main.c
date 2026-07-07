@@ -32,6 +32,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "utils.h"
+#include "semperflash_drv.h"
+#include "semperflash_test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,7 +43,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define SECTORS_COUNT 100
+#define MEMORY_SECTOR_SIZE 256  // 4KB sector size for SemperFlash
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,21 +60,23 @@ static __IO uint32_t NbMainFrames = 0;
 static volatile uint8_t dcmipp_start_pending = 0;
 VD55G1_Ctx_t   VD55G1Obj;
 
-uint8_t frame_buf[FRAME_BYTES];
-uint32_t g_last_frame_crc = 0;
-
 DMA_HandleTypeDef handle_GPDMA1_Channel2;
 DMA_HandleTypeDef handle_GPDMA1_Channel1;
 DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
 uint8_t csi_control = 0;
+
+__attribute__((section(".dcmipp_framebuffer")))
+__attribute__((aligned(32)))
+uint8_t frame_buffer0[FRAME_BYTES];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 static void SystemIsolation_Config(void);
-static void set_risaf_default_range(RISAF_TypeDef *risaf,
-                                    uint32_t start_addr,
-                                    uint32_t end_addr);
+static void set_risaf_default(RISAF_TypeDef *risaf);
+void RISAF_Config(void);
+void system_init_post(void);
+static uint32_t get_risaf_max_addr(RISAF_TypeDef *risaf);
 /* USER CODE BEGIN PFP */
 extern void vl53l9_app(void);
 /* USER CODE END PFP */
@@ -96,7 +101,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  system_init_post();
   /* USER CODE END Init */
 
   /* USER CODE BEGIN SysInit */
@@ -115,20 +120,32 @@ int main(void)
   MX_TIM3_Init();
   MX_UART5_Init();
   MX_UART7_Init();
-//  MX_XSPI1_Init();
-//  MX_XSPI2_Init();
+  MX_XSPI1_Init();
+  MX_XSPI2_Init();
   SystemIsolation_Config();
   /* USER CODE BEGIN 2 */
-  set_risaf_default_range(RISAF3, 0x00000000U, 0x001FFFFFU);
-//  set_risaf_default(RISAF4);
+//  SEMPER_HandleTypeDef flash1;
+//
+//  if(Semper_Flash_Init(&flash1, &hxspi1) != SEMPER_OK) {
+//     while (1); // Initialization failed
+//   }
+//
+//  Semper_Test_Init(&flash1, &hxspi1);
+//
+//   if(Semper_EnableMemoryMappedMode(&flash1) != SEMPER_OK) {
+//   		while (1); // Memory mapped mode error detected
+//   	}
+  RISAF_Config();
+  uint32_t buffer_addr = (uint32_t)frame_buffer0;
+  memset((void *)buffer_addr, 0x00, FRAME_BYTES);
 
   if(csi_control == 0)
   {
     HAL_GPIO_WritePin(CSI_SEL_GPIO_Port, CSI_SEL_Pin, RESET);
     HAL_Delay(200);
     CMW_CameraInit_t camera_init = {
-      .width = 640,
-      .height = 480,
+      .width = FRAME_W,
+      .height = FRAME_H,
       .fps = 3,
       .pixel_format = IMX335_RAW_RGGB10,
       .mirror_flip = 0
@@ -141,17 +158,11 @@ int main(void)
 
     CMW_CAMERA_Init(&camera_init);
 
-    uint8_t *buffer_ptr = frame_buf;
-//  CMW_CAMERA_Start(DCMIPP_PIPE1, buffer_ptr, DCMIPP_MODE_SNAPSHOT);
-    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0, BUFFER_ADDRESS_0, DCMIPP_MODE_SNAPSHOT) != HAL_OK) {
-        Error_Handler();
-    }
-
     CMW_Aspect_Ratio_Mode_t aspect_ratio = CMW_Aspect_ratio_crop;
     CMW_DCMIPP_Conf_t dcmipp_conf = {0};
 
-    dcmipp_conf.output_width = 640;
-    dcmipp_conf.output_height = 480;
+    dcmipp_conf.output_width = FRAME_W;
+    dcmipp_conf.output_height = FRAME_H;
     dcmipp_conf.output_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
     dcmipp_conf.output_bpp = 2;
     dcmipp_conf.mode = aspect_ratio;
@@ -160,15 +171,15 @@ int main(void)
     uint32_t pitch;
     uint8_t ret = 0;
     ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE1, &dcmipp_conf, &pitch);
-  
+
     while(1)
     {
-    	uint8_t a = 0;
-	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , BUFFER_ADDRESS_0, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
+//    	SCB_CleanInvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
+	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
 	    {
 	      Error_Handler();
 	    }
-
+//	    SCB_InvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
 	    HAL_Delay(100);
     }
   }
@@ -199,24 +210,6 @@ int main(void)
 }
 
 /**
-  * @brief Peripherals Common Clock Configuration
-  * @retval None
-  */
-void PeriphCommonClock_Config(void)
-{
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  /** Initializes the peripherals clock
-  */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_TIM;
-  PeriphClkInitStruct.TIMPresSelection = RCC_TIMPRES_DIV1;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
-/**
   * @brief RIF Initialization Function
   * @param None
   * @retval None
@@ -236,12 +229,13 @@ void PeriphCommonClock_Config(void)
 
   /* RIF-Aware IPs Config */
 	/*RISUP configuration*/
-	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_I2C1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_NPRIV);
-	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_UART5 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_NPRIV);
-	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_CSI , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_NPRIV);
-	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_DCMIPP , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_NPRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_I2C1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_I2C2 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_UART5 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_CSI , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_DCMIPP , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
   /* set up PWR configuration */
-  // HAL_PWR_ConfigAttributes(PWR_ITEM_WKUP1,PWR_SEC_NPRIV);
+   HAL_PWR_ConfigAttributes(PWR_ITEM_WKUP1,PWR_SEC_NPRIV);
 
   /* set up GPIO configuration */
   HAL_GPIO_ConfigPinAttributes(GPIOA,GPIO_PIN_1,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
@@ -268,35 +262,92 @@ void PeriphCommonClock_Config(void)
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_5);
 /* USER CODE END RIF_Init 1 */
 /* USER CODE BEGIN RIF_Init 2 */
+  __HAL_RCC_AXISRAM1_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM2_MEM_CLK_ENABLE();
   __HAL_RCC_AXISRAM3_MEM_CLK_ENABLE();
-  __HAL_RCC_AXISRAM4_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM4_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM5_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM6_MEM_CLK_ENABLE();
 /* USER CODE END RIF_Init 2 */
 
 }
 
 /* USER CODE BEGIN 4 */
-  static void set_risaf_default_range(RISAF_TypeDef *risaf,
-                                      uint32_t start_addr,
-                                      uint32_t end_addr)
-  {
-      RISAF_BaseRegionConfig_t risaf_conf = {0};
+static uint32_t get_risaf_max_addr(RISAF_TypeDef *risaf)
+{
+  uint32_t max_addr = 0U;
+  if      ((risaf == RISAF1_S)  || (risaf == RISAF1_NS))  {max_addr = RISAF1_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF2_S)  || (risaf == RISAF2_NS))  {max_addr = RISAF2_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF3_S)  || (risaf == RISAF3_NS))  {max_addr = RISAF3_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF4_S)  || (risaf == RISAF4_NS))  {max_addr = RISAF4_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF5_S)  || (risaf == RISAF5_NS))  {max_addr = RISAF5_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF6_S)  || (risaf == RISAF6_NS))  {max_addr = RISAF6_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF7_S)  || (risaf == RISAF7_NS))  {max_addr = RISAF7_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF8_S)  || (risaf == RISAF8_NS))  {max_addr = RISAF8_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF9_S)  || (risaf == RISAF9_NS))  {max_addr = RISAF9_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF11_S) || (risaf == RISAF11_NS)) {max_addr = RISAF11_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF12_S) || (risaf == RISAF12_NS)) {max_addr = RISAF12_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF13_S) || (risaf == RISAF13_NS)) {max_addr = RISAF13_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF14_S) || (risaf == RISAF14_NS)) {max_addr = RISAF14_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF15_S) || (risaf == RISAF15_NS)) {max_addr = RISAF15_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF21_S) || (risaf == RISAF21_NS)) {max_addr = RISAF21_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF22_S) || (risaf == RISAF22_NS)) {max_addr = RISAF22_LIMIT_ADDRESS_SPACE_SIZE;}
+  else if ((risaf == RISAF23_S) || (risaf == RISAF23_NS)) {max_addr = RISAF23_LIMIT_ADDRESS_SPACE_SIZE;}
+  return max_addr;
+}
 
-      risaf_conf.StartAddress = start_addr;
-      risaf_conf.EndAddress   = end_addr;
-      risaf_conf.Filtering    = RISAF_FILTER_ENABLE;
+static void set_risaf_default(RISAF_TypeDef *risaf)
+{
+  RISAF_BaseRegionConfig_t risaf_conf;  
+  risaf_conf.StartAddress = 0x0;
+  risaf_conf.EndAddress   = get_risaf_max_addr(risaf); /* as the default config */
+  risaf_conf.Filtering    = RISAF_FILTER_ENABLE; // Base region enable (otherwise access control is secure, privileged, trusted domain CID = 1)
+  risaf_conf.PrivWhitelist  = RIF_CID_NONE; // apps running in all compartments can access to region in priv/unpriv mode
+  risaf_conf.ReadWhitelist  = RIF_CID_MASK; // apps running in all compartments can R in this region
+  risaf_conf.WriteWhitelist = RIF_CID_MASK; // apps running in all compartments can W in this region
+  // Configure 2 regions with this config, fully overlapping, one for secure one for non secure accesses:
+  risaf_conf.Secure = RIF_ATTRIBUTE_SEC;    // Only secure requests can access this region
+  HAL_RIF_RISAF_ConfigBaseRegion(risaf, 0, &risaf_conf);
+  risaf_conf.Secure = RIF_ATTRIBUTE_NSEC;    // Only non-secure requests can access this region
+  HAL_RIF_RISAF_ConfigBaseRegion(risaf, 1, &risaf_conf);
+}
 
-      risaf_conf.PrivWhitelist  = RIF_CID_NONE;
-      risaf_conf.ReadWhitelist  = RIF_CID_MASK;
-      risaf_conf.WriteWhitelist = RIF_CID_MASK;
+void RISAF_Config(void)
+{
+  /*
+  *  Note: before to set a risaf for a given IP, the IP
+  *        should be clocked.
+  */
+  set_risaf_default(RISAF2_S);          /* SRAM1_AXI */
+  set_risaf_default(RISAF3_S);          /* SRAM2_AXI */
+  
+  set_risaf_default(RISAF6_S);          /* SRAM3,4,5,6_AXI */
+}
 
-      /* Region 0: Secure */
-      risaf_conf.Secure = RIF_ATTRIBUTE_SEC;
-      HAL_RIF_RISAF_ConfigBaseRegion(risaf, 0, &risaf_conf);
+void system_init_post(void)
+{  
+  __HAL_RCC_SYSCFG_CLK_ENABLE();
+  __HAL_RCC_CRC_CLK_ENABLE();
+   
+  /* Enable NPU RAMs (4x448KB) + CACHEAXI */
+  RCC->MEMENR |= RCC_MEMENR_AXISRAM3EN | RCC_MEMENR_AXISRAM4EN | RCC_MEMENR_AXISRAM5EN | RCC_MEMENR_AXISRAM6EN;
+  RCC->MEMENR |= RCC_MEMENR_CACHEAXIRAMEN; // RCC_MEMENR_NPUCACHERAMEN;
+  
+  RAMCFG_SRAM2_AXI->CR &= ~RAMCFG_CR_SRAMSD;
+  RAMCFG_SRAM3_AXI->CR &= ~RAMCFG_CR_SRAMSD;
+  RAMCFG_SRAM4_AXI->CR &= ~RAMCFG_CR_SRAMSD;
+  RAMCFG_SRAM5_AXI->CR &= ~RAMCFG_CR_SRAMSD;
+  RAMCFG_SRAM6_AXI->CR &= ~RAMCFG_CR_SRAMSD;
+    
+  /* Allow caches to be activated. Default value is 1, but the current boot sets it to 0 */
+  MEMSYSCTL->MSCR |= MEMSYSCTL_MSCR_DCACTIVE_Msk | MEMSYSCTL_MSCR_ICACTIVE_Msk;
+}
 
-      /* Region 1: Non-secure */
-      risaf_conf.Secure = RIF_ATTRIBUTE_NSEC;
-      HAL_RIF_RISAF_ConfigBaseRegion(risaf, 1, &risaf_conf);
-  }
+void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe)
+{
+	  NbMainFrames++;
+}
+
 /* USER CODE END 4 */
 
 /**

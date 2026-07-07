@@ -59,7 +59,9 @@ Application/User/Core/main.o: \
  ../../../Appli/Core/Inc/i2c.h ../../../Appli/Core/Inc/spi.h \
  ../../../Appli/Core/Inc/tim.h ../../../Appli/Core/Inc/usart.h \
  ../../../Appli/Core/Inc/xspi.h ../../../Appli/Core/Inc/xspim.h \
- ../../../Appli/Core/Inc/gpio.h ../../../Appli/Core/Inc/utils.h
+ ../../../Appli/Core/Inc/gpio.h ../../../Appli/Core/Inc/utils.h \
+ ../../../Drivers/Apollo_Drivers/Semper_Flash_BSP/Inc/semperflash_drv.h \
+ D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Application/User/Test/inc/semperflash_test.h
 ../../../Appli/Core/Inc/main.h:
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal.h:
 ../../../Appli/Core/Inc/stm32n6xx_hal_conf.h:
@@ -126,3 +128,5 @@ D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Application/User/sensors/vd55g0/
 ../../../Appli/Core/Inc/xspim.h:
 ../../../Appli/Core/Inc/gpio.h:
 ../../../Appli/Core/Inc/utils.h:
+../../../Drivers/Apollo_Drivers/Semper_Flash_BSP/Inc/semperflash_drv.h:
+D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Application/User/Test/inc/semperflash_test.h:

@@ -4,4 +4,4 @@
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3723:22:LL_APB5_GRP1_ReleaseReset	16	static
 D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/dcmipp.c:30:6:MX_DCMIPP_Init	48	static
 D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/dcmipp.c:111:6:HAL_DCMIPP_MspInit	416	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/dcmipp.c:149:6:HAL_DCMIPP_MspDeInit	16	static
+D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/dcmipp.c:151:6:HAL_DCMIPP_MspDeInit	16	static

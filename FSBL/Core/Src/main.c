@@ -62,7 +62,7 @@
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+static void SystemIsolation_Config(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -112,11 +112,11 @@ int main(void)
 //  MX_UART7_Init();
   MX_XSPI1_Init();
   MX_XSPI2_Init();
-
+  
   HAL_Delay(10);
   MX_EXTMEM_MANAGER_Init();
   /* USER CODE BEGIN 2 */
-
+//  SystemIsolation_Config();
 //  SEMPER_HandleTypeDef flash1;
 
     // Initialize SemperFlash
@@ -292,7 +292,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.IC1Selection.ClockDivider = 1;
   RCC_ClkInitStruct.IC2Selection.ClockSelection = RCC_ICCLKSOURCE_PLL1;
   RCC_ClkInitStruct.IC2Selection.ClockDivider = 2;
-  RCC_ClkInitStruct.IC6Selection.ClockSelection = RCC_ICCLKSOURCE_PLL1;
+  RCC_ClkInitStruct.IC6Selection.ClockSelection = RCC_ICCLKSOURCE_PLL2;
   RCC_ClkInitStruct.IC6Selection.ClockDivider = 1;
   RCC_ClkInitStruct.IC11Selection.ClockSelection = RCC_ICCLKSOURCE_PLL3;
   RCC_ClkInitStruct.IC11Selection.ClockDivider = 3;
@@ -323,7 +323,61 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void SystemIsolation_Config(void)
+{
+/* USER CODE BEGIN RIF_Init 0 */
+  __HAL_RCC_RIFSC_CLK_ENABLE();
+/* USER CODE END RIF_Init 0 */
 
+  /*RIMC configuration*/
+  RIMC_MasterConfig_t RIMC_master = {0};
+  RIMC_master.MasterCID = RIF_CID_1;
+  RIMC_master.SecPriv = RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV;
+  HAL_RIF_RIMC_ConfigMasterAttributes(RIF_MASTER_INDEX_DCMIPP, &RIMC_master);
+
+  /* RIF-Aware IPs Config */
+	/*RISUP configuration*/
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_I2C1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_I2C2 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_UART5 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_CSI , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+	HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_DCMIPP , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+  /* set up PWR configuration */
+//   HAL_PWR_ConfigAttributes(PWR_ITEM_WKUP1,PWR_SEC_NPRIV);
+
+  /* set up GPIO configuration */
+  HAL_GPIO_ConfigPinAttributes(GPIOA,GPIO_PIN_1,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOA,GPIO_PIN_3,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOB,GPIO_PIN_10,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOB,GPIO_PIN_11,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOC,GPIO_PIN_1,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOC,GPIO_PIN_7,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOC,GPIO_PIN_9,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOD,GPIO_PIN_0,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOD,GPIO_PIN_5,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOE,GPIO_PIN_0,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOE,GPIO_PIN_5,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOE,GPIO_PIN_8,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOE,GPIO_PIN_13,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOE,GPIO_PIN_14,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOF,GPIO_PIN_11,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOF,GPIO_PIN_12,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOF,GPIO_PIN_15,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOG,GPIO_PIN_10,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+  HAL_GPIO_ConfigPinAttributes(GPIOH,GPIO_PIN_2,GPIO_PIN_SEC|GPIO_PIN_NPRIV);
+
+/* USER CODE BEGIN RIF_Init 1 */
+  // HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_5);
+/* USER CODE END RIF_Init 1 */
+/* USER CODE BEGIN RIF_Init 2 */
+  __HAL_RCC_AXISRAM1_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM2_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM3_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM4_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM5_MEM_CLK_ENABLE();
+ __HAL_RCC_AXISRAM6_MEM_CLK_ENABLE();
+/* USER CODE END RIF_Init 2 */  
+}
 /* USER CODE END 4 */
 
 /**
