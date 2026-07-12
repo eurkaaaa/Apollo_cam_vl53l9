@@ -1,4 +1,5 @@
 "./Application/User/BSP/src/apollo.o"
+"./Application/User/BSP/src/apollo_camera.o"
 "./Application/User/BSP/src/app_camerapipeline.o"
 "./Application/User/BSP/src/cmw_camera.o"
 "./Application/User/BSP/src/cmw_utils.o"

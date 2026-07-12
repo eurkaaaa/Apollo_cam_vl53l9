@@ -1,7 +1,7 @@
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1407:22:LL_AHB4_GRP1_EnableClock	24	static
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2273:22:LL_APB1_GRP1_EnableClock	24	static
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2403:22:LL_APB1_GRP1_DisableClock	16	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/usart.c:31:6:MX_UART5_Init	8	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/usart.c:74:6:MX_UART7_Init	8	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/usart.c:117:6:HAL_UART_MspInit	440	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/usart.c:182:6:HAL_UART_MspDeInit	16	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/usart.c:31:6:MX_UART5_Init	8	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/usart.c:74:6:MX_UART7_Init	8	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/usart.c:117:6:HAL_UART_MspInit	440	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/usart.c:182:6:HAL_UART_MspDeInit	16	static

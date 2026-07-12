@@ -34,6 +34,7 @@
 #include "utils.h"
 #include "semperflash_drv.h"
 #include "semperflash_test.h"
+#include "apollo_camera.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -141,47 +142,21 @@ int main(void)
 
   if(csi_control == 0)
   {
-    HAL_GPIO_WritePin(CSI_SEL_GPIO_Port, CSI_SEL_Pin, RESET);
-    HAL_Delay(200);
-    CMW_CameraInit_t camera_init = {
-      .width = FRAME_W,
-      .height = FRAME_H,
-      .fps = 3,
-      .pixel_format = IMX335_RAW_RGGB10,
-      .mirror_flip = 0
-    };
-
-    HAL_GPIO_WritePin(XSHUTDOWN_GPIO_Port, XSHUTDOWN_Pin, RESET);
-    HAL_Delay(200);
-    HAL_GPIO_WritePin(XSHUTDOWN_GPIO_Port, XSHUTDOWN_Pin, SET);
-    HAL_Delay(200);
-
-    CMW_CAMERA_Init(&camera_init);
-
-    CMW_Aspect_Ratio_Mode_t aspect_ratio = CMW_Aspect_ratio_crop;
-    CMW_DCMIPP_Conf_t dcmipp_conf = {0};
-
-    dcmipp_conf.output_width = FRAME_W;
-    dcmipp_conf.output_height = FRAME_H;
-    dcmipp_conf.output_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
-    dcmipp_conf.output_bpp = 2;
-    dcmipp_conf.mode = aspect_ratio;
-    dcmipp_conf.enable_gamma_conversion = 0;
-
-    uint32_t pitch;
-    uint8_t ret = 0;
-    ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE1, &dcmipp_conf, &pitch);
-
-    while(1)
-    {
-//    	SCB_CleanInvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
-	    {
+	  if (ApolloCamera_Init(FRAME_H, FRAME_W, 3U, APOLLO_CAMERA_PIPE_1) != 0)
+	  {
 	      Error_Handler();
-	    }
-//	    SCB_InvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	    HAL_Delay(100);
-    }
+	  }
+
+	     if (ApolloCamera_Start((uint8_t *)buffer_addr) != CMW_ERROR_NONE)
+	     {
+	         Error_Handler();
+	     }
+
+	     while (1)
+	     {
+	         ApolloCamera_Run();
+	         HAL_Delay(10);
+	     }
   }
 
   HAL_Delay(100);

@@ -1,5 +1,5 @@
 Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal_i2c.o: \
- D:/STM32/STM32CubeIDE/Apollo/Drivers/STM32N6xx_HAL_Driver/Src/stm32n6xx_hal_i2c.c \
+ D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Drivers/STM32N6xx_HAL_Driver/Src/stm32n6xx_hal_i2c.c \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal.h \
  ../../../Appli/Core/Inc/stm32n6xx_hal_conf.h \
  ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rcc.h \

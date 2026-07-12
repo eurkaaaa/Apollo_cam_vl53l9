@@ -3,8 +3,8 @@
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2403:22:LL_APB1_GRP1_DisableClock	16	static
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3251:22:LL_APB4_GRP1_EnableClock	24	static
 ../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3319:22:LL_APB4_GRP1_DisableClock	16	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/i2c.c:32:6:MX_I2C1_Init	8	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/i2c.c:75:6:MX_I2C2_Init	8	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/i2c.c:118:6:MX_I2C4_Init	8	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/i2c.c:161:6:HAL_I2C_MspInit	440	static
-D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/i2c.c:282:6:HAL_I2C_MspDeInit	16	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/i2c.c:32:6:MX_I2C1_Init	8	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/i2c.c:75:6:MX_I2C2_Init	8	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/i2c.c:118:6:MX_I2C4_Init	8	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/i2c.c:161:6:HAL_I2C_MspInit	440	static
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/i2c.c:282:6:HAL_I2C_MspDeInit	16	static

@@ -1,5 +1,5 @@
 Drivers/CMSIS/system_stm32n6xx_s.o: \
- D:/STM32/STM32CubeIDE/Apollo/Appli/Core/Src/system_stm32n6xx_s.c \
+ D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/Appli/Core/Src/system_stm32n6xx_s.c \
  ../../../Drivers/CMSIS/Device/ST/STM32N6xx/Include/stm32n6xx.h \
  ../../../Drivers/CMSIS/Device/ST/STM32N6xx/Include/stm32n657xx.h \
  ../../../Drivers/CMSIS/Include/core_cm55.h \

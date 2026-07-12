@@ -1,6 +1,6 @@
 Application/User/BSP/src/crop_img.o: \
  ../Application/User/BSP/src/crop_img.c \
- D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Application/User/BSP/inc/crop_img.h \
+ D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/STM32CubeIDE/Appli/Application/User/BSP/inc/crop_img.h \
  ../../../DSP/Include/arm_math.h ../../../DSP/Include/arm_math_types.h \
  ../../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../../Drivers/CMSIS/Include/cmsis_gcc.h \
@@ -30,7 +30,7 @@ Application/User/BSP/src/crop_img.o: \
  ../../../DSP/Include/dsp/support_functions.h \
  ../../../DSP/Include/dsp/quaternion_math_functions.h \
  ../../../DSP/Include/dsp/window_functions.h
-D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Application/User/BSP/inc/crop_img.h:
+D:/Apollo_cam_vl53l9/Apollo_cam_vl53l9/STM32CubeIDE/Appli/Application/User/BSP/inc/crop_img.h:
 ../../../DSP/Include/arm_math.h:
 ../../../DSP/Include/arm_math_types.h:
 ../../../Drivers/CMSIS/Include/cmsis_compiler.h:

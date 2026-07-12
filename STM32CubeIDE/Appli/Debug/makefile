@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (14.3.rel1)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -77,15 +77,14 @@ Apollo_Appli.bin \
 
 
 # All Target
-all:
-	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
+all: main-build
 
 # Main-build Target
 main-build: Apollo_Appli.elf secondary-outputs
 
 # Tool invocations
-Apollo_Appli.elf Apollo_Appli.map: $(OBJS) $(USER_OBJS) D:\STM32\STM32CubeIDE\Apollo\STM32CubeIDE\Appli\STM32N657B0HXQ_LRUN.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Apollo_Appli.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m55 -T"D:\STM32\STM32CubeIDE\Apollo\STM32CubeIDE\Appli\STM32N657B0HXQ_LRUN.ld" --specs=nosys.specs -Wl,-Map="Apollo_Appli.map" -Wl,--gc-sections -static -Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o -L"D:\STM32\STM32CubeIDE\Apollo\STM32CubeIDE\Appli\Application\User\STM32_ISP_Library\evision\Lib" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Apollo_Appli.elf Apollo_Appli.map: $(OBJS) $(USER_OBJS) D:\Apollo_cam_vl53l9\Apollo_cam_vl53l9\STM32CubeIDE\Appli\STM32N657B0HXQ_LRUN.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Apollo_Appli.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m55 -T"D:\Apollo_cam_vl53l9\Apollo_cam_vl53l9\STM32CubeIDE\Appli\STM32N657B0HXQ_LRUN.ld" --specs=nosys.specs -Wl,-Map="Apollo_Appli.map" -Wl,--gc-sections -static -Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o -L"D:\Apollo_cam_vl53l9\Apollo_cam_vl53l9\STM32CubeIDE\Appli\Application\User\STM32_ISP_Library\evision\Lib" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -109,11 +108,6 @@ clean:
 	-$(RM) Apollo_Appli.bin Apollo_Appli.elf Apollo_Appli.list Apollo_Appli.map default.size.stdout
 	-@echo ' '
 
-post-build:
-	cd "D:/STM32/STM32CubeIDE/Apollo/STM32CubeIDE/Appli/Debug"
-	echo y | "E:\STM32CUBEPROGRAMMER\bin\STM32_SigningTool_CLI.exe" -bin "Apollo_Appli.bin" -nk -of 0x80000000 -t fsbl -o "Apollo_Appli-Trusted.bin" -hv 2.3 -dump "Apollo_Appli-Trusted.bin" -align
-	-@echo ' '
-
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
@@ -123,6 +117,6 @@ fail-specified-linker-script-missing:
 warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
-.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified post-build
+.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets
