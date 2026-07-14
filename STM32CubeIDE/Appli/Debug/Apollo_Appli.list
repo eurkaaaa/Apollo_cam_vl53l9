@@ -19,17 +19,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   7 .fini_array   00000004  3401ebb8  3401ebb8  0001ebb8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         000000c0  34080000  3401ebbc  0001f000  2**2
+  8 .data         000000c4  34080000  3401ebbc  0001f000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   9 .dcmipp_framebuffer 00025800  34200000  34200000  00020000  2**5
                   ALLOC
- 10 .noncacheable 00000000  340800c0  340800c0  0001fca0  2**0
-                  CONTENTS
+ 10 .noncacheable 00000004  340800c4  3401ec80  000200c4  2**0
+                  ALLOC
  11 .gnu.sgstubs  00000020  3401ec80  3401ec80  0001fc80  2**5
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .bss          0000621c  340800c0  340800c0  000200c0  2**5
+ 12 .bss          0000621c  340800e0  340800e0  000200e0  2**5
                   ALLOC
- 13 ._user_heap_stack 00000a04  340862dc  340862dc  000200c0  2**0
+ 13 ._user_heap_stack 00000a04  340862fc  340862fc  000200e0  2**0
                   ALLOC
  14 .ARM.attributes 0000003a  00000000  00000000  0001fca0  2**0
                   CONTENTS, READONLY
@@ -68,7 +68,7 @@ Disassembly of section .text:
 34000762:	2301      	movs	r3, #1
 34000764:	7023      	strb	r3, [r4, #0]
 34000766:	bd10      	pop	{r4, pc}
-34000768:	340800c0 	.word	0x340800c0
+34000768:	340800e0 	.word	0x340800e0
 3400076c:	00000000 	.word	0x00000000
 34000770:	3401aa90 	.word	0x3401aa90
 
@@ -81,7 +81,7 @@ Disassembly of section .text:
 3400077e:	f3af 8000 	nop.w
 34000782:	bd08      	pop	{r3, pc}
 34000784:	00000000 	.word	0x00000000
-34000788:	340800c4 	.word	0x340800c4
+34000788:	340800e4 	.word	0x340800e4
 3400078c:	3401aa90 	.word	0x3401aa90
 
 34000790 <__aeabi_uldivmod>:
@@ -550,7 +550,7 @@ int32_t CMW_CAMERA_SetPipeConfig(uint32_t pipe, CMW_DCMIPP_Conf_t *p_conf, uint3
 34000bf2:	46bd      	mov	sp, r7
 34000bf4:	bd80      	pop	{r7, pc}
 34000bf6:	bf00      	nop
-34000bf8:	34080248 	.word	0x34080248
+34000bf8:	34080268 	.word	0x34080268
 
 34000bfc <CMW_CAMERA_Probe_Sensor>:
   * @param  initValues  Initialization values for the sensor
@@ -785,11 +785,11 @@ int32_t CMW_CAMERA_Init(CMW_CameraInit_t *initConf)
 34000d3e:	46bd      	mov	sp, r7
 34000d40:	bdb0      	pop	{r4, r5, r7, pc}
 34000d42:	bf00      	nop
-34000d44:	34080234 	.word	0x34080234
-34000d48:	34080248 	.word	0x34080248
+34000d44:	34080254 	.word	0x34080254
+34000d48:	34080268 	.word	0x34080268
 34000d4c:	58002000 	.word	0x58002000
-34000d50:	340800f4 	.word	0x340800f4
-34000d54:	340800dc 	.word	0x340800dc
+34000d50:	34080114 	.word	0x34080114
+34000d54:	340800fc 	.word	0x340800fc
 
 34000d58 <MX_DCMIPP_ClockConfig>:
   * @param  hdcmipp  DCMIPP Handle
@@ -866,9 +866,9 @@ int CMW_CAMERA_SetGain(int32_t Gain)
 34000daa:	46bd      	mov	sp, r7
 34000dac:	bd80      	pop	{r7, pc}
 34000dae:	bf00      	nop
-34000db0:	34080138 	.word	0x34080138
-34000db4:	340801a0 	.word	0x340801a0
-34000db8:	340800f8 	.word	0x340800f8
+34000db0:	34080158 	.word	0x34080158
+34000db4:	340801c0 	.word	0x340801c0
+34000db8:	34080118 	.word	0x34080118
 
 34000dbc <CMW_CAMERA_SetExposure>:
   * @brief  Set the camera exposure.
@@ -923,9 +923,9 @@ int CMW_CAMERA_SetExposure(int32_t exposure)
 34000df6:	46bd      	mov	sp, r7
 34000df8:	bd80      	pop	{r7, pc}
 34000dfa:	bf00      	nop
-34000dfc:	34080138 	.word	0x34080138
-34000e00:	340801a0 	.word	0x340801a0
-34000e04:	340800f8 	.word	0x340800f8
+34000dfc:	34080158 	.word	0x34080158
+34000e00:	340801c0 	.word	0x340801c0
+34000e04:	34080118 	.word	0x34080118
 
 34000e08 <CMW_CAMERA_GetSensorInfo>:
   * @note   This function should be called after the init. This to get Capabilities
@@ -976,8 +976,8 @@ int32_t CMW_CAMERA_GetSensorInfo(ISP_SensorInfoTypeDef *info)
 34000e3a:	3710      	adds	r7, #16
 34000e3c:	46bd      	mov	sp, r7
 34000e3e:	bd80      	pop	{r7, pc}
-34000e40:	34080138 	.word	0x34080138
-34000e44:	340801a0 	.word	0x340801a0
+34000e40:	34080158 	.word	0x34080158
+34000e44:	340801c0 	.word	0x340801c0
 
 34000e48 <CMW_CAMERA_EnableGPIOs>:
 /**
@@ -1354,15 +1354,15 @@ static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params)
 34001086:	46bd      	mov	sp, r7
 34001088:	bd80      	pop	{r7, pc}
 3400108a:	bf00      	nop
-3400108c:	340801a0 	.word	0x340801a0
+3400108c:	340801c0 	.word	0x340801c0
 34001090:	00b71b00 	.word	0x00b71b00
 34001094:	34000b11 	.word	0x34000b11
 34001098:	34000b5d 	.word	0x34000b5d
 3400109c:	3400820d 	.word	0x3400820d
 340010a0:	34000e89 	.word	0x34000e89
-340010a4:	34080248 	.word	0x34080248
-340010a8:	34080138 	.word	0x34080138
-340010ac:	340803e0 	.word	0x340803e0
+340010a4:	34080268 	.word	0x34080268
+340010a8:	34080158 	.word	0x34080158
+340010ac:	34080400 	.word	0x34080400
 
 340010b0 <CMW_CAMERA_SetPipe>:
 
@@ -1830,8 +1830,8 @@ static int32_t CMW_CAMERA_SetPipe(DCMIPP_HandleTypeDef *hdcmipp, uint32_t pipe, 
 3400135e:	3758      	adds	r7, #88	@ 0x58
 34001360:	46bd      	mov	sp, r7
 34001362:	bd80      	pop	{r7, pc}
-34001364:	340800dc 	.word	0x340800dc
-34001368:	34080238 	.word	0x34080238
+34001364:	340800fc 	.word	0x340800fc
+34001368:	34080258 	.word	0x34080258
 
 3400136c <CMW_UTILS_GetPipeConfig>:
                                        DCMIPP_DecimationConfTypeDef *dec, DCMIPP_DownsizeTypeDef *down);
@@ -2471,7 +2471,7 @@ void MX_CACHEAXI_Init(void)
 3400187e:	bf00      	nop
 34001880:	bd80      	pop	{r7, pc}
 34001882:	bf00      	nop
-34001884:	3408023c 	.word	0x3408023c
+34001884:	3408025c 	.word	0x3408025c
 34001888:	580dfc00 	.word	0x580dfc00
 
 3400188c <HAL_CACHEAXI_MspInit>:
@@ -2810,7 +2810,7 @@ void MX_DCMIPP_Init(void)
 34001a6a:	3728      	adds	r7, #40	@ 0x28
 34001a6c:	46bd      	mov	sp, r7
 34001a6e:	bd80      	pop	{r7, pc}
-34001a70:	34080248 	.word	0x34080248
+34001a70:	34080268 	.word	0x34080268
 34001a74:	58002000 	.word	0x58002000
 
 34001a78 <HAL_DCMIPP_MspInit>:
@@ -3349,7 +3349,7 @@ void MX_I2C1_Init(void)
 34001dde:	bf00      	nop
 34001de0:	bd80      	pop	{r7, pc}
 34001de2:	bf00      	nop
-34001de4:	34080254 	.word	0x34080254
+34001de4:	34080274 	.word	0x34080274
 34001de8:	50005400 	.word	0x50005400
 34001dec:	20c0edff 	.word	0x20c0edff
 
@@ -3446,7 +3446,7 @@ void MX_I2C2_Init(void)
 34001e5e:	bf00      	nop
 34001e60:	bd80      	pop	{r7, pc}
 34001e62:	bf00      	nop
-34001e64:	340802a8 	.word	0x340802a8
+34001e64:	340802c8 	.word	0x340802c8
 34001e68:	50005800 	.word	0x50005800
 34001e6c:	20c0edff 	.word	0x20c0edff
 
@@ -3543,7 +3543,7 @@ void MX_I2C4_Init(void)
 34001ede:	bf00      	nop
 34001ee0:	bd80      	pop	{r7, pc}
 34001ee2:	bf00      	nop
-34001ee4:	340802fc 	.word	0x340802fc
+34001ee4:	3408031c 	.word	0x3408031c
 34001ee8:	56001c00 	.word	0x56001c00
 34001eec:	30c0edff 	.word	0x30c0edff
 
@@ -4435,10 +4435,10 @@ int main(void)
 34002520:	46bd      	mov	sp, r7
 34002522:	bd80      	pop	{r7, pc}
 34002524:	34200000 	.word	0x34200000
-34002528:	34080448 	.word	0x34080448
+34002528:	34080004 	.word	0x34080004
 3400252c:	56021400 	.word	0x56021400
 34002530:	56020000 	.word	0x56020000
-34002534:	34080248 	.word	0x34080248
+34002534:	34080268 	.word	0x34080268
 
 34002538 <SystemIsolation_Config>:
   * @brief RIF Initialization Function
@@ -5089,7 +5089,7 @@ void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t 
 34002a60:	46bd      	mov	sp, r7
 34002a62:	f85d 7b04 	ldr.w	r7, [sp], #4
 34002a66:	4770      	bx	lr
-34002a68:	340803dc 	.word	0x340803dc
+34002a68:	340803fc 	.word	0x340803fc
 
 34002a6c <Error_Handler>:
 /**
@@ -5172,8 +5172,8 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 34002aba:	e89f 900f 	clrm	{r0, r1, r2, r3, ip, APSR}
 34002abe:	ecfd cf81 	vldr	FPCXTNS, [sp], #4
 34002ac2:	4774      	bxns	lr
-34002ac4:	3408044c 	.word	0x3408044c
-34002ac8:	34080450 	.word	0x34080450
+34002ac4:	34080468 	.word	0x34080468
+34002ac8:	3408046c 	.word	0x3408046c
 
 34002acc <HAL_MspInit>:
 /* USER CODE END 0 */
@@ -5437,7 +5437,7 @@ void DCMIPP_IRQHandler(void)
 34002b76:	bf00      	nop
 34002b78:	bd80      	pop	{r7, pc}
 34002b7a:	bf00      	nop
-34002b7c:	34080248 	.word	0x34080248
+34002b7c:	34080268 	.word	0x34080268
 
 34002b80 <I2C1_EV_IRQHandler>:
 
@@ -5461,7 +5461,7 @@ void I2C1_EV_IRQHandler(void)
 34002b8a:	bf00      	nop
 34002b8c:	bd80      	pop	{r7, pc}
 34002b8e:	bf00      	nop
-34002b90:	34080254 	.word	0x34080254
+34002b90:	34080274 	.word	0x34080274
 
 34002b94 <I2C1_ER_IRQHandler>:
 
@@ -5485,7 +5485,7 @@ void I2C1_ER_IRQHandler(void)
 34002b9e:	bf00      	nop
 34002ba0:	bd80      	pop	{r7, pc}
 34002ba2:	bf00      	nop
-34002ba4:	34080254 	.word	0x34080254
+34002ba4:	34080274 	.word	0x34080274
 
 34002ba8 <I2C2_EV_IRQHandler>:
 
@@ -5509,7 +5509,7 @@ void I2C2_EV_IRQHandler(void)
 34002bb2:	bf00      	nop
 34002bb4:	bd80      	pop	{r7, pc}
 34002bb6:	bf00      	nop
-34002bb8:	340802a8 	.word	0x340802a8
+34002bb8:	340802c8 	.word	0x340802c8
 
 34002bbc <I2C2_ER_IRQHandler>:
 
@@ -5533,7 +5533,7 @@ void I2C2_ER_IRQHandler(void)
 34002bc6:	bf00      	nop
 34002bc8:	bd80      	pop	{r7, pc}
 34002bca:	bf00      	nop
-34002bcc:	340802a8 	.word	0x340802a8
+34002bcc:	340802c8 	.word	0x340802c8
 
 34002bd0 <I2C4_EV_IRQHandler>:
 
@@ -5557,7 +5557,7 @@ void I2C4_EV_IRQHandler(void)
 34002bda:	bf00      	nop
 34002bdc:	bd80      	pop	{r7, pc}
 34002bde:	bf00      	nop
-34002be0:	340802fc 	.word	0x340802fc
+34002be0:	3408031c 	.word	0x3408031c
 
 34002be4 <I2C4_ER_IRQHandler>:
 
@@ -5581,7 +5581,7 @@ void I2C4_ER_IRQHandler(void)
 34002bee:	bf00      	nop
 34002bf0:	bd80      	pop	{r7, pc}
 34002bf2:	bf00      	nop
-34002bf4:	340802fc 	.word	0x340802fc
+34002bf4:	3408031c 	.word	0x3408031c
 
 34002bf8 <TIM3_IRQHandler>:
 
@@ -5605,7 +5605,7 @@ void TIM3_IRQHandler(void)
 34002c02:	bf00      	nop
 34002c04:	bd80      	pop	{r7, pc}
 34002c06:	bf00      	nop
-34002c08:	340804e8 	.word	0x340804e8
+34002c08:	34080504 	.word	0x34080504
 
 34002c0c <SPI5_IRQHandler>:
 
@@ -5629,7 +5629,7 @@ void SPI5_IRQHandler(void)
 34002c16:	bf00      	nop
 34002c18:	bd80      	pop	{r7, pc}
 34002c1a:	bf00      	nop
-34002c1c:	34080454 	.word	0x34080454
+34002c1c:	34080470 	.word	0x34080470
 
 34002c20 <XSPI1_IRQHandler>:
 
@@ -5653,7 +5653,7 @@ void XSPI1_IRQHandler(void)
 34002c2a:	bf00      	nop
 34002c2c:	bd80      	pop	{r7, pc}
 34002c2e:	bf00      	nop
-34002c30:	3408065c 	.word	0x3408065c
+34002c30:	34080678 	.word	0x34080678
 
 34002c34 <XSPI2_IRQHandler>:
 
@@ -5677,7 +5677,7 @@ void XSPI2_IRQHandler(void)
 34002c3e:	bf00      	nop
 34002c40:	bd80      	pop	{r7, pc}
 34002c42:	bf00      	nop
-34002c44:	340806c0 	.word	0x340806c0
+34002c44:	340806dc 	.word	0x340806dc
 
 34002c48 <CSI_IRQHandler>:
 
@@ -5701,7 +5701,7 @@ void CSI_IRQHandler(void)
 34002c52:	bf00      	nop
 34002c54:	bd80      	pop	{r7, pc}
 34002c56:	bf00      	nop
-34002c58:	34080248 	.word	0x34080248
+34002c58:	34080268 	.word	0x34080268
 
 34002c5c <_getpid>:
 void initialise_monitor_handles()
@@ -5968,8 +5968,8 @@ void *_sbrk(ptrdiff_t incr)
 34002d9e:	bd80      	pop	{r7, pc}
 34002da0:	341c0000 	.word	0x341c0000
 34002da4:	00000800 	.word	0x00000800
-34002da8:	340804e4 	.word	0x340804e4
-34002dac:	340862e0 	.word	0x340862e0
+34002da8:	34080500 	.word	0x34080500
+34002dac:	34086300 	.word	0x34086300
 
 34002db0 <LL_AHB4_GRP1_EnableClock>:
 {
@@ -6146,7 +6146,7 @@ void MX_TIM3_Init(void)
 34002eae:	46bd      	mov	sp, r7
 34002eb0:	bd80      	pop	{r7, pc}
 34002eb2:	bf00      	nop
-34002eb4:	340804e8 	.word	0x340804e8
+34002eb4:	34080504 	.word	0x34080504
 34002eb8:	50000400 	.word	0x50000400
 
 34002ebc <HAL_TIM_PWM_MspInit>:
@@ -6418,7 +6418,7 @@ void MX_UART5_Init(void)
 34003032:	bf00      	nop
 34003034:	bd80      	pop	{r7, pc}
 34003036:	bf00      	nop
-34003038:	34080534 	.word	0x34080534
+34003038:	34080550 	.word	0x34080550
 
 3400303c <MX_UART7_Init>:
 /* UART7 init function */
@@ -6524,7 +6524,7 @@ void MX_UART7_Init(void)
 }
 340030c8:	bf00      	nop
 340030ca:	bd80      	pop	{r7, pc}
-340030cc:	340805c8 	.word	0x340805c8
+340030cc:	340805e4 	.word	0x340805e4
 340030d0:	50007800 	.word	0x50007800
 
 340030d4 <HAL_UART_MspInit>:
@@ -6869,7 +6869,7 @@ void MX_XSPI1_Init(void)
 3400332a:	3710      	adds	r7, #16
 3400332c:	46bd      	mov	sp, r7
 3400332e:	bd80      	pop	{r7, pc}
-34003330:	3408065c 	.word	0x3408065c
+34003330:	34080678 	.word	0x34080678
 34003334:	58025000 	.word	0x58025000
 
 34003338 <MX_XSPI2_Init>:
@@ -6999,7 +6999,7 @@ void MX_XSPI2_Init(void)
 340033de:	3710      	adds	r7, #16
 340033e0:	46bd      	mov	sp, r7
 340033e2:	bd80      	pop	{r7, pc}
-340033e4:	340806c0 	.word	0x340806c0
+340033e4:	340806dc 	.word	0x340806dc
 340033e8:	5802a000 	.word	0x5802a000
 
 340033ec <HAL_XSPI_MspInit>:
@@ -7241,7 +7241,7 @@ void HAL_XSPI_MspInit(XSPI_HandleTypeDef* xspiHandle)
 340035b6:	bf00      	nop
 340035b8:	58025000 	.word	0x58025000
 340035bc:	03000014 	.word	0x03000014
-340035c0:	34080724 	.word	0x34080724
+340035c0:	34080740 	.word	0x34080740
 340035c4:	56023c00 	.word	0x56023c00
 340035c8:	56023800 	.word	0x56023800
 340035cc:	5802a000 	.word	0x5802a000
@@ -7344,13 +7344,13 @@ LoopForever:
   ldr r0, =_sdata
 34003620:	34080000 	.word	0x34080000
   ldr r1, =_edata
-34003624:	340800c0 	.word	0x340800c0
+34003624:	340800c4 	.word	0x340800c4
   ldr r2, =_sidata
 34003628:	3401ebbc 	.word	0x3401ebbc
   ldr r2, =_sbss
-3400362c:	340800c0 	.word	0x340800c0
+3400362c:	340800e0 	.word	0x340800e0
   ldr r4, =_ebss
-34003630:	340862dc 	.word	0x340862dc
+34003630:	340862fc 	.word	0x340862fc
 
 34003634 <ADC1_2_IRQHandler>:
  * @retval : None
@@ -7947,10 +7947,10 @@ __STATIC_FORCEINLINE void SCB_InvalidateDCache_by_Addr (volatile void *addr, int
         ret_irq = platform_wait_for_event(PLATFORM_CAM_PIPE_FRAME_EVT, 1000);
 340039ec:	e79d      	b.n	3400392a <vl53l9_app+0xe6>
 340039ee:	bf00      	nop
-340039f0:	34080004 	.word	0x34080004
-340039f4:	34080028 	.word	0x34080028
+340039f0:	34080008 	.word	0x34080008
+340039f4:	3408002c 	.word	0x3408002c
 340039f8:	3b9aca00 	.word	0x3b9aca00
-340039fc:	34080740 	.word	0x34080740
+340039fc:	34080760 	.word	0x34080760
 34003a00:	3401ab10 	.word	0x3401ab10
 34003a04:	e000ed00 	.word	0xe000ed00
 34003a08:	49742400 	.word	0x49742400
@@ -8038,7 +8038,7 @@ int platform_start_csi_pipe(uint8_t *buff_csi) {
 34003a76:	46bd      	mov	sp, r7
 34003a78:	bd80      	pop	{r7, pc}
 34003a7a:	bf00      	nop
-34003a7c:	34080248 	.word	0x34080248
+34003a7c:	34080268 	.word	0x34080268
 
 34003a80 <platform_enable_event>:
 //    if (Pipe == DCMIPP_PIPE0) {
@@ -8107,7 +8107,7 @@ int platform_enable_event(platform_event_t plt_evt) {
 34003ada:	3710      	adds	r7, #16
 34003adc:	46bd      	mov	sp, r7
 34003ade:	bd80      	pop	{r7, pc}
-34003ae0:	34084174 	.word	0x34084174
+34003ae0:	34084194 	.word	0x34084194
 
 34003ae4 <platform_acknowledge_event>:
         break;
@@ -8205,7 +8205,7 @@ int platform_acknowledge_event(platform_event_t plt_evt) {
 34003b94:	f85d 7b04 	ldr.w	r7, [sp], #4
 34003b98:	4770      	bx	lr
 34003b9a:	bf00      	nop
-34003b9c:	34084174 	.word	0x34084174
+34003b9c:	34084194 	.word	0x34084194
 
 34003ba0 <platform_wait_for_event>:
 
@@ -8268,7 +8268,7 @@ int platform_wait_for_event(platform_event_t plt_evt, uint32_t to_ms) {
 34003bfe:	46bd      	mov	sp, r7
 34003c00:	bdb0      	pop	{r4, r5, r7, pc}
 34003c02:	bf00      	nop
-34003c04:	34084174 	.word	0x34084174
+34003c04:	34084194 	.word	0x34084194
 
 34003c08 <platform_power_reset>:
     } else {
@@ -8339,7 +8339,7 @@ int platform_power_reset(uint8_t id) {
 34003c7a:	3708      	adds	r7, #8
 34003c7c:	46bd      	mov	sp, r7
 34003c7e:	bd80      	pop	{r7, pc}
-34003c80:	34080004 	.word	0x34080004
+34003c80:	34080008 	.word	0x34080008
 
 34003c84 <platform_assign_dynamic_address>:
     device[id].bus_type = bus_type;
@@ -8562,11 +8562,11 @@ int platform_assign_dynamic_address() {
 34003dce:	46bd      	mov	sp, r7
 34003dd0:	bd80      	pop	{r7, pc}
 34003dd2:	bf00      	nop
-34003dd4:	34080004 	.word	0x34080004
-34003dd8:	34080350 	.word	0x34080350
+34003dd4:	34080008 	.word	0x34080008
+34003dd8:	34080370 	.word	0x34080370
 34003ddc:	50006400 	.word	0x50006400
-34003de0:	34084178 	.word	0x34084178
-34003de4:	34084180 	.word	0x34084180
+34003de0:	34084198 	.word	0x34084198
+34003de4:	340841a0 	.word	0x340841a0
 
 34003de8 <platform_profiler_enable>:
     HAL_StatusTypeDef status;
@@ -8644,7 +8644,7 @@ uint32_t platform_profiler_convert_to_us(uint32_t timestamp) {
 34003e54:	f85d 7b04 	ldr.w	r7, [sp], #4
 34003e58:	4770      	bx	lr
 34003e5a:	bf00      	nop
-34003e5c:	34080058 	.word	0x34080058
+34003e5c:	3408005c 	.word	0x3408005c
 34003e60:	431bde83 	.word	0x431bde83
 
 34003e64 <HAL_I3C_TgtReqDynamicAddrCallback>:
@@ -8691,9 +8691,9 @@ void HAL_I3C_TgtReqDynamicAddrCallback(I3C_HandleTypeDef *hi3c, uint64_t targetP
 34003ea6:	3710      	adds	r7, #16
 34003ea8:	46bd      	mov	sp, r7
 34003eaa:	bd80      	pop	{r7, pc}
-34003eac:	34084178 	.word	0x34084178
-34003eb0:	34084180 	.word	0x34084180
-34003eb4:	34080004 	.word	0x34080004
+34003eac:	34084198 	.word	0x34084198
+34003eb0:	340841a0 	.word	0x340841a0
+34003eb4:	34080008 	.word	0x34080008
 
 34003eb8 <HAL_I3C_CtrlDAACpltCallback>:
 
@@ -8716,7 +8716,7 @@ void HAL_I3C_CtrlDAACpltCallback(I3C_HandleTypeDef *hi3c) {
 34003ed4:	46bd      	mov	sp, r7
 34003ed6:	f85d 7b04 	ldr.w	r7, [sp], #4
 34003eda:	4770      	bx	lr
-34003edc:	34084174 	.word	0x34084174
+34003edc:	34084194 	.word	0x34084194
 
 34003ee0 <HAL_I3C_NotifyCallback>:
 
@@ -8766,7 +8766,7 @@ void HAL_I3C_NotifyCallback(I3C_HandleTypeDef *hi3c, uint32_t eventId) {
 34003f26:	3738      	adds	r7, #56	@ 0x38
 34003f28:	46bd      	mov	sp, r7
 34003f2a:	bd80      	pop	{r7, pc}
-34003f2c:	34084174 	.word	0x34084174
+34003f2c:	34084194 	.word	0x34084194
 
 34003f30 <HAL_I3C_CtrlRxCpltCallback>:
 
@@ -8789,7 +8789,7 @@ void HAL_I3C_CtrlRxCpltCallback(I3C_HandleTypeDef *hi3c) {
 34003f4c:	46bd      	mov	sp, r7
 34003f4e:	f85d 7b04 	ldr.w	r7, [sp], #4
 34003f52:	4770      	bx	lr
-34003f54:	34084174 	.word	0x34084174
+34003f54:	34084194 	.word	0x34084194
 
 34003f58 <vl53l9_read>:
 static uint8_t _i3c_read(void *const p_dev, I3C_PrivateTypeDef *aPrivateDescriptor, I3C_XferTypeDef *aContextBuffers);
@@ -9733,8 +9733,8 @@ int vl53l9_write(void *const p_dev, uint16_t address, uint8_t *p_values, uint32_
 34004606:	3770      	adds	r7, #112	@ 0x70
 34004608:	46bd      	mov	sp, r7
 3400460a:	bdb0      	pop	{r4, r5, r7, pc}
-3400460c:	34084188 	.word	0x34084188
-34004610:	3408418a 	.word	0x3408418a
+3400460c:	340841a8 	.word	0x340841a8
+34004610:	340841aa 	.word	0x340841aa
 
 34004614 <vl53l9_write8>:
 
@@ -18515,7 +18515,7 @@ void SystemCoreClockUpdate(void)
 340080fe:	f85d 7b04 	ldr.w	r7, [sp], #4
 34008102:	4770      	bx	lr
 34008104:	56028000 	.word	0x56028000
-34008108:	34080058 	.word	0x34080058
+34008108:	3408005c 	.word	0x3408005c
 
 3400810c <__acle_se_SECURE_SystemCoreClockUpdate>:
   *         be used by the user application to setup the SysTick timer or configure
@@ -18542,7 +18542,7 @@ CMSE_NS_ENTRY uint32_t SECURE_SystemCoreClockUpdate(void)
 3400812c:	ecfd cf81 	vldr	FPCXTNS, [sp], #4
 34008130:	4774      	bxns	lr
 34008132:	bf00      	nop
-34008134:	34080058 	.word	0x34080058
+34008134:	3408005c 	.word	0x3408005c
 
 34008138 <HAL_Init>:
   *         each 1ms in the SysTick_Handler() interrupt handler.
@@ -18660,9 +18660,9 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
 340081ba:	3708      	adds	r7, #8
 340081bc:	46bd      	mov	sp, r7
 340081be:	bd80      	pop	{r7, pc}
-340081c0:	34080060 	.word	0x34080060
-340081c4:	34080058 	.word	0x34080058
-340081c8:	3408005c 	.word	0x3408005c
+340081c0:	34080064 	.word	0x34080064
+340081c4:	3408005c 	.word	0x3408005c
+340081c8:	34080060 	.word	0x34080060
 
 340081cc <HAL_IncTick>:
   * @note This function is declared as __weak to be overwritten in case of other
@@ -18688,8 +18688,8 @@ __weak void HAL_IncTick(void)
 340081e4:	f85d 7b04 	ldr.w	r7, [sp], #4
 340081e8:	4770      	bx	lr
 340081ea:	bf00      	nop
-340081ec:	34080060 	.word	0x34080060
-340081f0:	3408618c 	.word	0x3408618c
+340081ec:	34080064 	.word	0x34080064
+340081f0:	340861ac 	.word	0x340861ac
 
 340081f4 <HAL_GetTick>:
   * @note This function is declared as __weak to be overwritten in case of other
@@ -18709,7 +18709,7 @@ __weak uint32_t HAL_GetTick(void)
 34008200:	f85d 7b04 	ldr.w	r7, [sp], #4
 34008204:	4770      	bx	lr
 34008206:	bf00      	nop
-34008208:	3408618c 	.word	0x3408618c
+34008208:	340861ac 	.word	0x340861ac
 
 3400820c <HAL_Delay>:
   *       implementations in user file.
@@ -18762,7 +18762,7 @@ __weak void HAL_Delay(uint32_t Delay)
 3400824a:	46bd      	mov	sp, r7
 3400824c:	bd80      	pop	{r7, pc}
 3400824e:	bf00      	nop
-34008250:	34080060 	.word	0x34080060
+34008250:	34080064 	.word	0x34080064
 
 34008254 <HAL_CACHEAXI_Init>:
   * @note   In case HAL_CACHEAXI_Init() returns HAL_BUSY because an invalidation
@@ -63273,7 +63273,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019ab6:	461c      	mov	r4, r3
 34019ab8:	e7f3      	b.n	34019aa2 <__assert_func+0x12>
 34019aba:	bf00      	nop
-34019abc:	34080070 	.word	0x34080070
+34019abc:	34080074 	.word	0x34080074
 34019ac0:	3401eb3c 	.word	0x3401eb3c
 34019ac4:	3401eb49 	.word	0x3401eb49
 34019ac8:	3401eb77 	.word	0x3401eb77
@@ -63306,7 +63306,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019b06:	d1f2      	bne.n	34019aee <sbrk_aligned+0x22>
 34019b08:	e7ef      	b.n	34019aea <sbrk_aligned+0x1e>
 34019b0a:	bf00      	nop
-34019b0c:	34086190 	.word	0x34086190
+34019b0c:	340861b0 	.word	0x340861b0
 
 34019b10 <_malloc_r>:
 34019b10:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -63416,19 +63416,19 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019c06:	6005      	str	r5, [r0, #0]
 34019c08:	e7d6      	b.n	34019bb8 <_malloc_r+0xa8>
 34019c0a:	bf00      	nop
-34019c0c:	34086194 	.word	0x34086194
+34019c0c:	340861b4 	.word	0x340861b4
 
 34019c10 <__malloc_lock>:
 34019c10:	4801      	ldr	r0, [pc, #4]	@ (34019c18 <__malloc_lock+0x8>)
 34019c12:	f000 ba58 	b.w	3401a0c6 <__retarget_lock_acquire_recursive>
 34019c16:	bf00      	nop
-34019c18:	340862d8 	.word	0x340862d8
+34019c18:	340862f8 	.word	0x340862f8
 
 34019c1c <__malloc_unlock>:
 34019c1c:	4801      	ldr	r0, [pc, #4]	@ (34019c24 <__malloc_unlock+0x8>)
 34019c1e:	f000 ba53 	b.w	3401a0c8 <__retarget_lock_release_recursive>
 34019c22:	bf00      	nop
-34019c24:	340862d8 	.word	0x340862d8
+34019c24:	340862f8 	.word	0x340862f8
 
 34019c28 <std>:
 34019c28:	2300      	movs	r3, #0
@@ -63472,7 +63472,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019c84:	34019e2b 	.word	0x34019e2b
 34019c88:	34019e63 	.word	0x34019e63
 34019c8c:	34019e89 	.word	0x34019e89
-34019c90:	34086198 	.word	0x34086198
+34019c90:	340861b8 	.word	0x340861b8
 
 34019c94 <stdio_exit_handler>:
 34019c94:	4a02      	ldr	r2, [pc, #8]	@ (34019ca0 <stdio_exit_handler+0xc>)
@@ -63480,9 +63480,9 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019c98:	4803      	ldr	r0, [pc, #12]	@ (34019ca8 <stdio_exit_handler+0x14>)
 34019c9a:	f000 b87d 	b.w	34019d98 <_fwalk_sglue>
 34019c9e:	bf00      	nop
-34019ca0:	34080064 	.word	0x34080064
+34019ca0:	34080068 	.word	0x34080068
 34019ca4:	3401a835 	.word	0x3401a835
-34019ca8:	34080074 	.word	0x34080074
+34019ca8:	34080078 	.word	0x34080078
 
 34019cac <cleanup_stdio>:
 34019cac:	6841      	ldr	r1, [r0, #4]
@@ -63507,9 +63507,9 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019cd8:	f000 bdac 	b.w	3401a834 <_fflush_r>
 34019cdc:	bd10      	pop	{r4, pc}
 34019cde:	bf00      	nop
-34019ce0:	34086198 	.word	0x34086198
-34019ce4:	34086200 	.word	0x34086200
-34019ce8:	34086268 	.word	0x34086268
+34019ce0:	340861b8 	.word	0x340861b8
+34019ce4:	34086220 	.word	0x34086220
+34019ce8:	34086288 	.word	0x34086288
 
 34019cec <global_stdio_init.part.0>:
 34019cec:	4b0c      	ldr	r3, [pc, #48]	@ (34019d20 <global_stdio_init.part.0+0x34>)
@@ -63532,21 +63532,21 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019d16:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
 34019d1a:	f7ff bf85 	b.w	34019c28 <std>
 34019d1e:	bf00      	nop
-34019d20:	340862d0 	.word	0x340862d0
+34019d20:	340862f0 	.word	0x340862f0
 34019d24:	34019c95 	.word	0x34019c95
-34019d28:	34086198 	.word	0x34086198
+34019d28:	340861b8 	.word	0x340861b8
 
 34019d2c <__sfp_lock_acquire>:
 34019d2c:	4801      	ldr	r0, [pc, #4]	@ (34019d34 <__sfp_lock_acquire+0x8>)
 34019d2e:	f000 b9ca 	b.w	3401a0c6 <__retarget_lock_acquire_recursive>
 34019d32:	bf00      	nop
-34019d34:	340862d9 	.word	0x340862d9
+34019d34:	340862f9 	.word	0x340862f9
 
 34019d38 <__sfp_lock_release>:
 34019d38:	4801      	ldr	r0, [pc, #4]	@ (34019d40 <__sfp_lock_release+0x8>)
 34019d3a:	f000 b9c5 	b.w	3401a0c8 <__retarget_lock_release_recursive>
 34019d3e:	bf00      	nop
-34019d40:	340862d9 	.word	0x340862d9
+34019d40:	340862f9 	.word	0x340862f9
 
 34019d44 <__sinit>:
 34019d44:	b510      	push	{r4, lr}
@@ -63566,7 +63566,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019d68:	e7f2      	b.n	34019d50 <__sinit+0xc>
 34019d6a:	bf00      	nop
 34019d6c:	34019cad 	.word	0x34019cad
-34019d70:	340862d0 	.word	0x340862d0
+34019d70:	340862f0 	.word	0x340862f0
 
 34019d74 <fiprintf>:
 34019d74:	b40e      	push	{r1, r2, r3}
@@ -63582,7 +63582,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019d8c:	f85d eb04 	ldr.w	lr, [sp], #4
 34019d90:	b003      	add	sp, #12
 34019d92:	4770      	bx	lr
-34019d94:	34080070 	.word	0x34080070
+34019d94:	34080074 	.word	0x34080074
 
 34019d98 <_fwalk_sglue>:
 34019d98:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -63625,7 +63625,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019dec:	f85d eb04 	ldr.w	lr, [sp], #4
 34019df0:	b004      	add	sp, #16
 34019df2:	4770      	bx	lr
-34019df4:	34080070 	.word	0x34080070
+34019df4:	34080074 	.word	0x34080074
 
 34019df8 <putchar>:
 34019df8:	4b02      	ldr	r3, [pc, #8]	@ (34019e04 <putchar+0xc>)
@@ -63633,7 +63633,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019dfc:	6818      	ldr	r0, [r3, #0]
 34019dfe:	6882      	ldr	r2, [r0, #8]
 34019e00:	f000 bd9d 	b.w	3401a93e <_putc_r>
-34019e04:	34080070 	.word	0x34080070
+34019e04:	34080074 	.word	0x34080074
 
 34019e08 <__sread>:
 34019e08:	b510      	push	{r4, lr}
@@ -63823,7 +63823,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019faa:	2000      	movs	r0, #0
 34019fac:	e7f7      	b.n	34019f9e <__swsetup_r+0x92>
 34019fae:	bf00      	nop
-34019fb0:	34080070 	.word	0x34080070
+34019fb0:	34080074 	.word	0x34080074
 
 34019fb4 <memset>:
 34019fb4:	4402      	add	r2, r0
@@ -63848,7 +63848,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019fda:	b103      	cbz	r3, 34019fde <_close_r+0x1a>
 34019fdc:	6023      	str	r3, [r4, #0]
 34019fde:	bd38      	pop	{r3, r4, r5, pc}
-34019fe0:	340862d4 	.word	0x340862d4
+34019fe0:	340862f4 	.word	0x340862f4
 
 34019fe4 <_lseek_r>:
 34019fe4:	b538      	push	{r3, r4, r5, lr}
@@ -63866,7 +63866,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 34019ffe:	b103      	cbz	r3, 3401a002 <_lseek_r+0x1e>
 3401a000:	6023      	str	r3, [r4, #0]
 3401a002:	bd38      	pop	{r3, r4, r5, pc}
-3401a004:	340862d4 	.word	0x340862d4
+3401a004:	340862f4 	.word	0x340862f4
 
 3401a008 <_read_r>:
 3401a008:	b538      	push	{r3, r4, r5, lr}
@@ -63884,7 +63884,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401a022:	b103      	cbz	r3, 3401a026 <_read_r+0x1e>
 3401a024:	6023      	str	r3, [r4, #0]
 3401a026:	bd38      	pop	{r3, r4, r5, pc}
-3401a028:	340862d4 	.word	0x340862d4
+3401a028:	340862f4 	.word	0x340862f4
 
 3401a02c <_sbrk_r>:
 3401a02c:	b538      	push	{r3, r4, r5, lr}
@@ -63900,7 +63900,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401a042:	b103      	cbz	r3, 3401a046 <_sbrk_r+0x1a>
 3401a044:	6023      	str	r3, [r4, #0]
 3401a046:	bd38      	pop	{r3, r4, r5, pc}
-3401a048:	340862d4 	.word	0x340862d4
+3401a048:	340862f4 	.word	0x340862f4
 
 3401a04c <_write_r>:
 3401a04c:	b538      	push	{r3, r4, r5, lr}
@@ -63918,14 +63918,14 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401a066:	b103      	cbz	r3, 3401a06a <_write_r+0x1e>
 3401a068:	6023      	str	r3, [r4, #0]
 3401a06a:	bd38      	pop	{r3, r4, r5, pc}
-3401a06c:	340862d4 	.word	0x340862d4
+3401a06c:	340862f4 	.word	0x340862f4
 
 3401a070 <__errno>:
 3401a070:	4b01      	ldr	r3, [pc, #4]	@ (3401a078 <__errno+0x8>)
 3401a072:	6818      	ldr	r0, [r3, #0]
 3401a074:	4770      	bx	lr
 3401a076:	bf00      	nop
-3401a078:	34080070 	.word	0x34080070
+3401a078:	34080074 	.word	0x34080074
 
 3401a07c <__libc_init_array>:
 3401a07c:	b570      	push	{r4, r5, r6, lr}
@@ -64057,7 +64057,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401a17e:	e7ca      	b.n	3401a116 <_free_r+0x22>
 3401a180:	bd38      	pop	{r3, r4, r5, pc}
 3401a182:	bf00      	nop
-3401a184:	34086194 	.word	0x34086194
+3401a184:	340861b4 	.word	0x340861b4
 
 3401a188 <__sfputc_r>:
 3401a188:	6893      	ldr	r3, [r2, #8]
@@ -64988,7 +64988,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401a9fc:	6818      	ldr	r0, [r3, #0]
 3401a9fe:	f7ff bfd2 	b.w	3401a9a6 <_raise_r>
 3401aa02:	bf00      	nop
-3401aa04:	34080070 	.word	0x34080070
+3401aa04:	34080074 	.word	0x34080074
 
 3401aa08 <_fstat_r>:
 3401aa08:	b538      	push	{r3, r4, r5, lr}
@@ -65006,7 +65006,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401aa22:	6023      	str	r3, [r4, #0]
 3401aa24:	bd38      	pop	{r3, r4, r5, pc}
 3401aa26:	bf00      	nop
-3401aa28:	340862d4 	.word	0x340862d4
+3401aa28:	340862f4 	.word	0x340862f4
 
 3401aa2c <_isatty_r>:
 3401aa2c:	b538      	push	{r3, r4, r5, lr}
@@ -65022,7 +65022,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401aa42:	b103      	cbz	r3, 3401aa46 <_isatty_r+0x1a>
 3401aa44:	6023      	str	r3, [r4, #0]
 3401aa46:	bd38      	pop	{r3, r4, r5, pc}
-3401aa48:	340862d4 	.word	0x340862d4
+3401aa48:	340862f4 	.word	0x340862f4
 
 3401aa4c <_kill_r>:
 3401aa4c:	b538      	push	{r3, r4, r5, lr}
@@ -65040,7 +65040,7 @@ static void XSPIM_GetConfig(uint8_t instance_nb, XSPIM_CfgTypeDef *pCfg)
 3401aa66:	6023      	str	r3, [r4, #0]
 3401aa68:	bd38      	pop	{r3, r4, r5, pc}
 3401aa6a:	bf00      	nop
-3401aa6c:	340862d4 	.word	0x340862d4
+3401aa6c:	340862f4 	.word	0x340862f4
 
 3401aa70 <_getpid_r>:
 3401aa70:	f7e8 b8f4 	b.w	34002c5c <_getpid>

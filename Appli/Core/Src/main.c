@@ -64,7 +64,7 @@ DMA_HandleTypeDef handle_GPDMA1_Channel2;
 DMA_HandleTypeDef handle_GPDMA1_Channel1;
 DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
-uint8_t csi_control = 0;
+uint8_t csi_control = 1;
 
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))

@@ -18821,7 +18821,7 @@ LOAD D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
                 0x34225800                        . = ALIGN (0x20)
                 0x34225800                        __dcmipp_fb_end__ = .
 
-.data           0x34080000       0xc0 load address 0x3401ebbc
+.data           0x34080000       0xc4 load address 0x3401ebbc
                 0x34080000                        . = ALIGN (0x4)
                 0x34080000                        _sdata = .
  *(.data)
@@ -18829,41 +18829,46 @@ LOAD D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .data.hbus_i2c1
                 0x34080000        0x4 ./Application/User/BSP/src/apollo.o
                 0x34080000                hbus_i2c1
- .data.device   0x34080004       0x24 ./Application/User/interface/vl53l9/vl53l9_device.o
-                0x34080004                device
+ .data.csi_control
+                0x34080004        0x1 ./Application/User/Core/main.o
+                0x34080004                csi_control
+ *fill*         0x34080005        0x3 
+ .data.device   0x34080008       0x24 ./Application/User/interface/vl53l9/vl53l9_device.o
+                0x34080008                device
  .data.g_ranging_profiles
-                0x34080028       0x30 ./Application/User/interface/vl53l9/vl53l9_profiles.o
-                0x34080028                g_ranging_profiles
+                0x3408002c       0x30 ./Application/User/interface/vl53l9/vl53l9_profiles.o
+                0x3408002c                g_ranging_profiles
  .data.SystemCoreClock
-                0x34080058        0x4 ./Drivers/CMSIS/system_stm32n6xx_s.o
-                0x34080058                SystemCoreClock
+                0x3408005c        0x4 ./Drivers/CMSIS/system_stm32n6xx_s.o
+                0x3408005c                SystemCoreClock
  .data.uwTickPrio
-                0x3408005c        0x4 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
-                0x3408005c                uwTickPrio
+                0x34080060        0x4 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
+                0x34080060                uwTickPrio
  .data.uwTickFreq
-                0x34080060        0x1 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
-                0x34080060                uwTickFreq
- *fill*         0x34080061        0x3 
- .data.__sglue  0x34080064        0xc D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x34080064                __sglue
+                0x34080064        0x1 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
+                0x34080064                uwTickFreq
+ *fill*         0x34080065        0x3 
+ .data.__sglue  0x34080068        0xc D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x34080068                __sglue
  .data._impure_ptr
-                0x34080070        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-impure.o)
-                0x34080070                _impure_ptr
+                0x34080074        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-impure.o)
+                0x34080074                _impure_ptr
  .data._impure_data
-                0x34080074       0x4c D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-impure.o)
-                0x34080074                _impure_data
-                0x340800c0                        . = ALIGN (0x4)
-                0x340800c0                        _edata = .
+                0x34080078       0x4c D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-impure.o)
+                0x34080078                _impure_data
+                0x340800c4                        . = ALIGN (0x4)
+                0x340800c4                        _edata = .
 
-.igot.plt       0x340800c0        0x0 load address 0x3401ec7c
- .igot.plt      0x340800c0        0x0 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v8-m.main+dp/hard/crtbegin.o
+.igot.plt       0x340800c4        0x0 load address 0x3401ec80
+ .igot.plt      0x340800c4        0x0 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v8-m.main+dp/hard/crtbegin.o
 
-.noncacheable   0x340800c0        0x0 load address 0x3401ec7c
-                0x340800c0                        . = ALIGN (0x8)
-                0x340800c0                        __snoncacheable = .
+.noncacheable   0x340800c4        0x4 load address 0x3401ec80
+                0x340800c8                        . = ALIGN (0x8)
+ *fill*         0x340800c4        0x4 
+                0x340800c8                        __snoncacheable = .
  *(.noncacheable)
-                0x340800c0                        . = ALIGN (0x8)
-                0x340800c0                        __enoncacheable = .
+                0x340800c8                        . = ALIGN (0x8)
+                0x340800c8                        __enoncacheable = .
 
 .gnu.sgstubs    0x3401ec80       0x20
                 0x3401ec80                        _sNSCVeneer = .
@@ -18877,130 +18882,126 @@ LOAD D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
                 0x3401eca0                        _eNSCVeneer = .
                 0x3401ec90                        . = ALIGN (0x4)
 
-.bss            0x340800c0     0x621c
-                0x340800c0                        _sbss = .
-                0x340800c0                        __bss_start__ = _sbss
+.bss            0x340800e0     0x621c
+                0x340800e0                        _sbss = .
+                0x340800e0                        __bss_start__ = _sbss
  *(.bss)
- .bss           0x340800c0       0x1c D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v8-m.main+dp/hard/crtbegin.o
+ .bss           0x340800e0       0x1c D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v8-m.main+dp/hard/crtbegin.o
  *(.bss*)
  .bss.camera_conf
-                0x340800dc       0x18 ./Application/User/BSP/src/cmw_camera.o
-                0x340800dc                camera_conf
+                0x340800fc       0x18 ./Application/User/BSP/src/cmw_camera.o
+                0x340800fc                camera_conf
  .bss.detected_sensor
-                0x340800f4        0x1 ./Application/User/BSP/src/cmw_camera.o
-                0x340800f4                detected_sensor
- *fill*         0x340800f5        0x3 
+                0x34080114        0x1 ./Application/User/BSP/src/cmw_camera.o
+                0x34080114                detected_sensor
+ *fill*         0x34080115        0x3 
  .bss.Camera_Ctx
-                0x340800f8       0x40 ./Application/User/BSP/src/cmw_camera.o
-                0x340800f8                Camera_Ctx
+                0x34080118       0x40 ./Application/User/BSP/src/cmw_camera.o
+                0x34080118                Camera_Ctx
  .bss.Camera_Drv
-                0x34080138       0x68 ./Application/User/BSP/src/cmw_camera.o
+                0x34080158       0x68 ./Application/User/BSP/src/cmw_camera.o
  .bss.camera_bsp
-                0x340801a0       0x94 ./Application/User/BSP/src/cmw_camera.o
+                0x340801c0       0x94 ./Application/User/BSP/src/cmw_camera.o
  .bss.is_camera_init
-                0x34080234        0x4 ./Application/User/BSP/src/cmw_camera.o
-                0x34080234                is_camera_init
+                0x34080254        0x4 ./Application/User/BSP/src/cmw_camera.o
+                0x34080254                is_camera_init
  .bss.is_pipe1_2_shared
-                0x34080238        0x4 ./Application/User/BSP/src/cmw_camera.o
-                0x34080238                is_pipe1_2_shared
+                0x34080258        0x4 ./Application/User/BSP/src/cmw_camera.o
+                0x34080258                is_pipe1_2_shared
  .bss.hcacheaxi
-                0x3408023c        0xc ./Application/User/Core/cacheaxi.o
-                0x3408023c                hcacheaxi
- .bss.hdcmipp   0x34080248        0xc ./Application/User/Core/dcmipp.o
-                0x34080248                hdcmipp
- .bss.hi2c1     0x34080254       0x54 ./Application/User/Core/i2c.o
-                0x34080254                hi2c1
- .bss.hi2c2     0x340802a8       0x54 ./Application/User/Core/i2c.o
-                0x340802a8                hi2c2
- .bss.hi2c4     0x340802fc       0x54 ./Application/User/Core/i2c.o
-                0x340802fc                hi2c4
- .bss.hi3c2     0x34080350       0x8c ./Application/User/Core/i3c.o
-                0x34080350                hi3c2
+                0x3408025c        0xc ./Application/User/Core/cacheaxi.o
+                0x3408025c                hcacheaxi
+ .bss.hdcmipp   0x34080268        0xc ./Application/User/Core/dcmipp.o
+                0x34080268                hdcmipp
+ .bss.hi2c1     0x34080274       0x54 ./Application/User/Core/i2c.o
+                0x34080274                hi2c1
+ .bss.hi2c2     0x340802c8       0x54 ./Application/User/Core/i2c.o
+                0x340802c8                hi2c2
+ .bss.hi2c4     0x3408031c       0x54 ./Application/User/Core/i2c.o
+                0x3408031c                hi2c4
+ .bss.hi3c2     0x34080370       0x8c ./Application/User/Core/i3c.o
+                0x34080370                hi3c2
  .bss.NbMainFrames
-                0x340803dc        0x4 ./Application/User/Core/main.o
+                0x340803fc        0x4 ./Application/User/Core/main.o
  .bss.VD55G1Obj
-                0x340803e0       0x68 ./Application/User/Core/main.o
-                0x340803e0                VD55G1Obj
- .bss.csi_control
-                0x34080448        0x1 ./Application/User/Core/main.o
-                0x34080448                csi_control
- *fill*         0x34080449        0x3 
+                0x34080400       0x68 ./Application/User/Core/main.o
+                0x34080400                VD55G1Obj
  .bss.pSecureFaultCallback
-                0x3408044c        0x4 ./Application/User/Core/secure_nsc.o
-                0x3408044c                pSecureFaultCallback
+                0x34080468        0x4 ./Application/User/Core/secure_nsc.o
+                0x34080468                pSecureFaultCallback
  .bss.pSecureErrorCallback
-                0x34080450        0x4 ./Application/User/Core/secure_nsc.o
-                0x34080450                pSecureErrorCallback
- .bss.hspi5     0x34080454       0x90 ./Application/User/Core/spi.o
-                0x34080454                hspi5
+                0x3408046c        0x4 ./Application/User/Core/secure_nsc.o
+                0x3408046c                pSecureErrorCallback
+ .bss.hspi5     0x34080470       0x90 ./Application/User/Core/spi.o
+                0x34080470                hspi5
  .bss.__sbrk_heap_end
-                0x340804e4        0x4 ./Application/User/Core/sysmem.o
- .bss.htim3     0x340804e8       0x4c ./Application/User/Core/tim.o
-                0x340804e8                htim3
- .bss.huart5    0x34080534       0x94 ./Application/User/Core/usart.o
-                0x34080534                huart5
- .bss.huart7    0x340805c8       0x94 ./Application/User/Core/usart.o
-                0x340805c8                huart7
- .bss.hxspi1    0x3408065c       0x64 ./Application/User/Core/xspi.o
-                0x3408065c                hxspi1
- .bss.hxspi2    0x340806c0       0x64 ./Application/User/Core/xspi.o
-                0x340806c0                hxspi2
+                0x34080500        0x4 ./Application/User/Core/sysmem.o
+ .bss.htim3     0x34080504       0x4c ./Application/User/Core/tim.o
+                0x34080504                htim3
+ .bss.huart5    0x34080550       0x94 ./Application/User/Core/usart.o
+                0x34080550                huart5
+ .bss.huart7    0x340805e4       0x94 ./Application/User/Core/usart.o
+                0x340805e4                huart7
+ .bss.hxspi1    0x34080678       0x64 ./Application/User/Core/xspi.o
+                0x34080678                hxspi1
+ .bss.hxspi2    0x340806dc       0x64 ./Application/User/Core/xspi.o
+                0x340806dc                hxspi2
  .bss.HAL_RCC_XSPIM_CLK_ENABLED
-                0x34080724        0x4 ./Application/User/Core/xspi.o
- *fill*         0x34080728       0x18 
+                0x34080740        0x4 ./Application/User/Core/xspi.o
+ *fill*         0x34080744       0x1c 
  .bss.g_csi_output_buffer
-                0x34080740     0x3a34 ./Application/User/app/simple_ranging_csi/simple_ranging_csi.o
-                0x34080740                g_csi_output_buffer
+                0x34080760     0x3a34 ./Application/User/app/simple_ranging_csi/simple_ranging_csi.o
+                0x34080760                g_csi_output_buffer
  .bss.platform_evt
-                0x34084174        0x1 ./Application/User/interface/platform/platform_utils.o
-                0x34084174                platform_evt
- *fill*         0x34084175        0x3 
+                0x34084194        0x1 ./Application/User/interface/platform/platform_utils.o
+                0x34084194                platform_evt
+ *fill*         0x34084195        0x3 
  .bss.dev_count
-                0x34084178        0x4 ./Application/User/interface/platform/platform_utils.o
- *fill*         0x3408417c        0x4 
+                0x34084198        0x4 ./Application/User/interface/platform/platform_utils.o
+ *fill*         0x3408419c        0x4 
  .bss.dev_payload
-                0x34084180        0x8 ./Application/User/interface/platform/platform_utils.o
+                0x340841a0        0x8 ./Application/User/interface/platform/platform_utils.o
  .bss.s_i3c_write_buf
-                0x34084188     0x2002 ./Application/User/interface/vl53l9/vl53l9_platform.o
- *fill*         0x3408618a        0x2 
- .bss.uwTick    0x3408618c        0x4 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
-                0x3408618c                uwTick
+                0x340841a8     0x2002 ./Application/User/interface/vl53l9/vl53l9_platform.o
+ *fill*         0x340861aa        0x2 
+ .bss.uwTick    0x340861ac        0x4 ./Drivers/STM32N6xx_HAL_Driver/stm32n6xx_hal.o
+                0x340861ac                uwTick
  .bss.__malloc_sbrk_start
-                0x34086190        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x34086190                __malloc_sbrk_start
+                0x340861b0        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x340861b0                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x34086194        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x34086194                __malloc_free_list
- .bss.__sf      0x34086198      0x138 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x34086198                __sf
+                0x340861b4        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x340861b4                __malloc_free_list
+ .bss.__sf      0x340861b8      0x138 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x340861b8                __sf
  .bss.__stdio_exit_handler
-                0x340862d0        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x340862d0                __stdio_exit_handler
- .bss.errno     0x340862d4        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-reent.o)
-                0x340862d4                errno
+                0x340862f0        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x340862f0                __stdio_exit_handler
+ .bss.errno     0x340862f4        0x4 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-reent.o)
+                0x340862f4                errno
  .bss.__lock___malloc_recursive_mutex
-                0x340862d8        0x1 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-lock.o)
-                0x340862d8                __lock___malloc_recursive_mutex
+                0x340862f8        0x1 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-lock.o)
+                0x340862f8                __lock___malloc_recursive_mutex
  .bss.__lock___sfp_recursive_mutex
-                0x340862d9        0x1 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-lock.o)
-                0x340862d9                __lock___sfp_recursive_mutex
+                0x340862f9        0x1 D:/ST/STM32CubeIDE_2.1.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+dp/hard\libc_nano.a(libc_a-lock.o)
+                0x340862f9                __lock___sfp_recursive_mutex
  *(COMMON)
-                0x340862dc                        . = ALIGN (0x4)
- *fill*         0x340862da        0x2 
-                0x340862dc                        _ebss = .
-                0x340862dc                        __bss_end__ = _ebss
+                0x340862fc                        . = ALIGN (0x4)
+ *fill*         0x340862fa        0x2 
+                0x340862fc                        _ebss = .
+                0x340862fc                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x340862dc      0xa04
-                0x340862e0                        . = ALIGN (0x8)
- *fill*         0x340862dc        0x4 
+                0x340862fc      0xa04
+                0x34086300                        . = ALIGN (0x8)
+ *fill*         0x340862fc        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x340862e0                        PROVIDE (_end = .)
-                0x340864e0                        . = (. + _Min_Heap_Size)
- *fill*         0x340862e0      0x200 
-                0x34086ce0                        . = (. + _Min_Stack_Size)
- *fill*         0x340864e0      0x800 
-                0x34086ce0                        . = ALIGN (0x8)
+                0x34086300                        PROVIDE (_end = .)
+                0x34086500                        . = (. + _Min_Heap_Size)
+ *fill*         0x34086300      0x200 
+                0x34086d00                        . = (. + _Min_Stack_Size)
+ *fill*         0x34086500      0x800 
+                0x34086d00                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
