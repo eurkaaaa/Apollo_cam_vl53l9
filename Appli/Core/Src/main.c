@@ -154,8 +154,11 @@ int main(void)
 
 	     while (1)
 	     {
-	         ApolloCamera_Run();
-	         HAL_Delay(10);
+	    	    if (ApolloCamera_Start((uint8_t *)buffer_addr) != 0)
+	    	    {
+	    	        Error_Handler();
+	    	    }
+	         HAL_Delay(100);
 	     }
   }
 

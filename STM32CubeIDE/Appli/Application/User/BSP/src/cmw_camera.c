@@ -97,8 +97,8 @@ int32_t CMW_CAMERA_GetSensorName(CMW_Sensor_Name_t *sensorName)
     return CMW_ERROR_NONE;
   }
 
-  initValues.width = 0;
-  initValues.height = 0;
+  initValues.width = FRAME_W;
+  initValues.height =FRAME_H;
   initValues.fps = 30;
   initValues.pixel_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
   initValues.mirrorFlip = CMW_MIRRORFLIP_NONE;
@@ -334,10 +334,10 @@ int32_t CMW_CAMERA_Start(uint32_t pipe, uint8_t *pbuff, uint32_t mode)
     CMW_Aspect_Ratio_Mode_t aspect_ratio = CMW_Aspect_ratio_crop;
     CMW_DCMIPP_Conf_t dcmipp_conf = {0};
 
-    dcmipp_conf.output_width = 640;
-    dcmipp_conf.output_height = 480;
+    dcmipp_conf.output_width = FRAME_W;
+    dcmipp_conf.output_height = FRAME_H;
     dcmipp_conf.output_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
-    dcmipp_conf.output_bpp = 2;
+    dcmipp_conf.output_bpp = BYTES_PER_PIXEL;
     dcmipp_conf.mode = aspect_ratio;
     dcmipp_conf.enable_gamma_conversion = 0;
 
