@@ -25,7 +25,7 @@
 ../Application/User/BSP/src/cmw_camera.c:653:9:CMW_CAMERA_GetSensorInfo	3
 ../Application/User/BSP/src/cmw_camera.c:674:9:CMW_CAMERA_Run	2
 ../Application/User/BSP/src/cmw_camera.c:806:13:CMW_CAMERA_EnableGPIOs	1
-../Application/User/BSP/src/cmw_camera.c:827:13:CMW_CAMERA_PwrDown	1
-../Application/User/BSP/src/cmw_camera.c:842:13:CMW_CAMERA_ShutdownPin	1
-../Application/User/BSP/src/cmw_camera.c:847:16:CMW_CAMERA_VD55G1_Init	12
-../Application/User/BSP/src/cmw_camera.c:968:16:CMW_CAMERA_SetPipe	29
+../Application/User/BSP/src/cmw_camera.c:825:13:CMW_CAMERA_PwrDown	1
+../Application/User/BSP/src/cmw_camera.c:840:13:CMW_CAMERA_ShutdownPin	1
+../Application/User/BSP/src/cmw_camera.c:845:16:CMW_CAMERA_VD55G1_Init	12
+../Application/User/BSP/src/cmw_camera.c:964:16:CMW_CAMERA_SetPipe	29

@@ -816,8 +816,6 @@ static void CMW_CAMERA_EnableGPIOs(void)
   gpio_init_structure.Mode      = GPIO_MODE_OUTPUT_PP;
   gpio_init_structure.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(XSHUTDOWN_GPIO_Port, &gpio_init_structure);
-
-
 }
 
 /**
@@ -892,8 +890,6 @@ static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params)
   }
 
   pPipeConf.FrameRate  = DCMIPP_FRAME_RATE_ALL;
-
-
 
   pPipeConf.PixelPackerFormat = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
 

@@ -1312,3 +1312,643 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-16 06:47:20.303
 !MESSAGE port: COM4
+!SESSION 2026-07-18 14:34:30.617 -----------------------------------------------
+eclipse.buildId=Version 2.1.1
+java.version=21.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-07-18 14:34:34.941
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-07-18 14:34:38.799
+!MESSAGE Log4j2 initialized with config file D:\STM32\STM32CubeIDE\Apollo\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-18 14:34:43.748
+!MESSAGE System property http.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-18 14:34:43.749
+!MESSAGE System property http.proxyPort is set to 7897 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-18 14:34:43.751
+!MESSAGE System property https.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-18 14:34:43.752
+!MESSAGE System property https.proxyPort is set to 7897 but should not be set.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-07-18 14:34:46.038
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.480
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM11
+COM14
+COM12
+COM13
+COM4
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.480
+!MESSAGE port: COM11
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.481
+!MESSAGE port: COM14
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.481
+!MESSAGE port: COM12
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.481
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 14:34:57.481
+!MESSAGE port: COM4
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 14:37:33.966
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 14:37:36.750
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 14:41:37.384
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:01:43.960
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:02:29.996
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:03:29.293
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:05:42.859
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:06:20.141
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:09:40.136
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:13:58.016
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:14:01.609
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:16:14.355
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:17:27.249
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:21:24.887
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:21:51.580
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:24:47.083
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:24:50.382
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-07-18 15:27:22.637
+!MESSAGE Request for monitor: '163^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2026-07-18 15:27:22.637
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0xe000ee08 d 1 1 4
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:27:31.660
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:27:33.861
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:31:20.878
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:31:27.658
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:33:44.144
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:33:54.142
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:33:54.714
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:37:38.529
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:37:52.890
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-07-18 15:46:17.720
+!MESSAGE Request for monitor: '1465^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2026-07-18 15:46:17.720
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0xe000ee08 d 1 1 4
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:55:23.562
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:58:33.179
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 15:58:33.632
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 16:04:22.588
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 16:05:29.352
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.lambda$0(MCUAnalyticsRegister.java:340)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-07-18 16:05:32.241
+!MESSAGE Resource '/Apollo' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Apollo' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:238)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:183)
+	at org.eclipse.core.internal.resources.Project.getDescription(Project.java:430)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:171)
+	at com.st.stm32cube.common.projectcreation.core.ProjectUtilities.hasProjectNature(ProjectUtilities.java:227)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsUtils.getRootProject(MCUAnalyticsUtils.java:176)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:467)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalyticsRegister.send(MCUAnalyticsRegister.java:350)
+	at com.st.stm32cube.ide.mcu.analytics.core.MCUAnalytics.lambda$1(MCUAnalytics.java:193)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

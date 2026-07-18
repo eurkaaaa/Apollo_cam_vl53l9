@@ -41,8 +41,6 @@ __weak HAL_StatusTypeDef MX_I2C1_Init(I2C_HandleTypeDef *hI2c)
 
 }
 
-
-
 /**
   * @brief  Initializes I2C MSP.
   * @param  phi2c  I2C handler

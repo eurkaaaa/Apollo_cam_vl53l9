@@ -28,6 +28,7 @@
 #include "xspi.h"
 #include "xspim.h"
 #include "gpio.h"
+#include "vl53l9.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -191,7 +192,25 @@ int main(void)
   {
     HAL_GPIO_WritePin(CSI_SEL_GPIO_Port, CSI_SEL_Pin, SET);
     HAL_Delay(200);
-    vl53l9_app();
+
+    HAL_GPIO_WritePin((GPIO_TypeDef *)XSHUT_GPIO_Port, XSHUT_Pin, GPIO_PIN_RESET);
+    HAL_Delay(50);
+    HAL_GPIO_WritePin((GPIO_TypeDef *)XSHUT_GPIO_Port, XSHUT_Pin, GPIO_PIN_SET);
+    HAL_Delay(50);
+
+    while(1)
+    {
+    	uint32_t ret = HAL_I2C_IsDeviceReady(&hi2c2, VL53L9_DEFAULT_ADDRESS, 3, 1000);
+    	if(ret != HAL_OK){
+            HAL_I2C_DeInit(&hi2c2);
+            HAL_Delay(10);
+            MX_I2C2_Init();
+    	}
+    	HAL_Delay(100);
+    }
+
+
+//     vl53l9_app();
   }
   
 
