@@ -1,3 +1,0 @@
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/sharpener.c:6:21:minf	2
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/sharpener.c:10:21:maxf	2
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/sharpener.c:31:5:vl53l9_algo_sharpener	28

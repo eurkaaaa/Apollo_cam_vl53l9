@@ -65,7 +65,7 @@ DMA_HandleTypeDef handle_GPDMA1_Channel2;
 DMA_HandleTypeDef handle_GPDMA1_Channel1;
 DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
-uint8_t csi_control = 1;
+uint8_t csi_control = 0;
 
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))
@@ -198,19 +198,19 @@ int main(void)
     HAL_GPIO_WritePin((GPIO_TypeDef *)XSHUT_GPIO_Port, XSHUT_Pin, GPIO_PIN_SET);
     HAL_Delay(50);
 
-    while(1)
-    {
-    	uint32_t ret = HAL_I2C_IsDeviceReady(&hi2c2, VL53L9_DEFAULT_ADDRESS, 3, 1000);
-    	if(ret != HAL_OK){
-            HAL_I2C_DeInit(&hi2c2);
-            HAL_Delay(10);
-            MX_I2C2_Init();
-    	}
-    	HAL_Delay(100);
-    }
+//    while(1)
+//    {
+//    	uint32_t ret = HAL_I2C_IsDeviceReady(&hi2c2, VL53L9_DEFAULT_ADDRESS, 3, 1000);
+//    	if(ret != HAL_OK){
+//            HAL_I2C_DeInit(&hi2c2);
+//            HAL_Delay(10);
+//            MX_I2C2_Init();
+//    	}
+//    	HAL_Delay(100);
+//    }
 
 
-//     vl53l9_app();
+     vl53l9_app();
   }
   
 
@@ -352,7 +352,7 @@ void system_init_post(void)
    
   /* Enable NPU RAMs (4x448KB) + CACHEAXI */
   RCC->MEMENR |= RCC_MEMENR_AXISRAM3EN | RCC_MEMENR_AXISRAM4EN | RCC_MEMENR_AXISRAM5EN | RCC_MEMENR_AXISRAM6EN;
-  RCC->MEMENR |= RCC_MEMENR_CACHEAXIRAMEN; // RCC_MEMENR_NPUCACHERAMEN;
+//  RCC->MEMENR |= RCC_MEMENR_CACHEAXIRAMEN; // RCC_MEMENR_NPUCACHERAMEN;
   
   RAMCFG_SRAM2_AXI->CR &= ~RAMCFG_CR_SRAMSD;
   RAMCFG_SRAM3_AXI->CR &= ~RAMCFG_CR_SRAMSD;
