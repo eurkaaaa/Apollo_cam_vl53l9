@@ -1,7 +1,0 @@
-../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1407:22:LL_AHB4_GRP1_EnableClock	1
-../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2273:22:LL_APB1_GRP1_EnableClock	1
-../../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:2403:22:LL_APB1_GRP1_DisableClock	1
-D:/STM32/STM32CubeIDE/Apollo/FSBL/Core/Src/usart.c:31:6:MX_UART5_Init	5
-D:/STM32/STM32CubeIDE/Apollo/FSBL/Core/Src/usart.c:74:6:MX_UART7_Init	5
-D:/STM32/STM32CubeIDE/Apollo/FSBL/Core/Src/usart.c:117:6:HAL_UART_MspInit	5
-D:/STM32/STM32CubeIDE/Apollo/FSBL/Core/Src/usart.c:212:6:HAL_UART_MspDeInit	3

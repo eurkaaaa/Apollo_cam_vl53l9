@@ -1,5 +1,0 @@
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/radial_to_perp.c:20:21:maxf	16	static
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/radial_to_perp.c:24:21:rsqrt	24	static
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/radial_to_perp.c:35:21:compute_distortion	40	static
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/radial_to_perp.c:44:5:vl53l9_algo_radial_to_perp	96	static
-../Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo/radial_to_perp.c:110:5:vl53l9_algo_pointcloud	80	static

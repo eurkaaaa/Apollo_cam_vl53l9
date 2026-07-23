@@ -1,7 +1,0 @@
-../Application/User/BSP/src/apollo_camera.c:23:13:ApolloCamera_SelectAndResetSensor	8	static
-../Application/User/BSP/src/apollo_camera.c:43:16:ApolloCamera_MapPipe	16	static
-../Application/User/BSP/src/apollo_camera.c:69:9:ApolloCamera_Init	104	static
-../Application/User/BSP/src/apollo_camera.c:132:9:ApolloCamera_Start	24	static
-../Application/User/BSP/src/apollo_camera.c:149:9:ApolloCamera_Stop	16	static
-../Application/User/BSP/src/apollo_camera.c:166:9:ApolloCamera_DeInit	16	static
-../Application/User/BSP/src/apollo_camera.c:180:9:ApolloCamera_Run	8	static
