@@ -955,11 +955,17 @@ static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params)
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
-  ret = Camera_Drv.Start(&camera_bsp);
-  if (ret != CMW_ERROR_NONE)
-  {
-    return CMW_ERROR_COMPONENT_FAILURE;
-  }
+  /*
+   * 不要在 Init 中启动传感器。
+   * 传感器启动统一交给 CMW_CAMERA_Start()。
+   */
+
+//
+//  ret = Camera_Drv.Start(&camera_bsp);
+//  if (ret != CMW_ERROR_NONE)
+//  {
+//    return CMW_ERROR_COMPONENT_FAILURE;
+//  }
 
   VD55G1Obj = camera_bsp.vd55g1_bsp.ctx_driver;
   return CMW_ERROR_NONE;
