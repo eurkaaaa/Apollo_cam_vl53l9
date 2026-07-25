@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Application/User/Startup/%.o: ../Application/User/Startup/%.s Application/User/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m55 -g3 -DDEBUG -c -I../../..Drivers/Apollo_Drivers/Micron_Flash_BSP -I../../..Drivers/Apollo_Drivers/Semper_Flash_BSP -I../../../Test/inc -I../../../Third_Party/debug_print -I../../../Third_Party/unity/inc -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m55 -g3 -DDEBUG -DAPP_BOOT_FROM_FSBL -c -I../../..Drivers/Apollo_Drivers/Micron_Flash_BSP -I../../..Drivers/Apollo_Drivers/Semper_Flash_BSP -I../../../Test/inc -I../../../Third_Party/debug_print -I../../../Third_Party/unity/inc -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Application-2f-User-2f-Startup
 
