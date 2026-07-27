@@ -103,9 +103,9 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  #ifndef APP_BOOT_FROM_FSBL
-  SystemClock_Config();
-  #endif
+//  #ifndef APP_BOOT_FROM_FSBL
+//  SystemClock_Config();
+//  #endif
   system_init_post();
   /* USER CODE END Init */
 
@@ -175,7 +175,7 @@ int main(void)
 	      Error_Handler();
 	    }
 //	    SCB_InvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	    HAL_Delay(100);
+	    HAL_Delay(500);
     }
   }
 
