@@ -55,7 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DCMIPP_HandleTypeDef hdcmipp;
+extern DCMIPP_HandleTypeDef hdcmipp_f;
 extern I2C_HandleTypeDef hi2c1;
 extern I2C_HandleTypeDef hi2c2;
 extern I2C_HandleTypeDef hi2c4;
@@ -241,7 +241,7 @@ void DCMIPP_IRQHandler(void)
   /* USER CODE BEGIN DCMIPP_IRQn 0 */
 
   /* USER CODE END DCMIPP_IRQn 0 */
-  HAL_DCMIPP_IRQHandler(&hdcmipp);
+  HAL_DCMIPP_IRQHandler(&hdcmipp_f);
   /* USER CODE BEGIN DCMIPP_IRQn 1 */
 
   /* USER CODE END DCMIPP_IRQn 1 */
@@ -395,7 +395,7 @@ void CSI_IRQHandler(void)
   /* USER CODE BEGIN CSI_IRQn 0 */
 
   /* USER CODE END CSI_IRQn 0 */
-  HAL_DCMIPP_CSI_IRQHandler(&hdcmipp);
+  HAL_DCMIPP_CSI_IRQHandler(&hdcmipp_f);
   /* USER CODE BEGIN CSI_IRQn 1 */
 
   /* USER CODE END CSI_IRQn 1 */

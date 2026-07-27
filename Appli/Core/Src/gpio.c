@@ -132,6 +132,13 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure the EXTI line attribute */
+  HAL_EXTI_ConfigLineAttributes(EXTI_LINE_0, EXTI_LINE_SEC);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(INTR_EXTI_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(INTR_EXTI_IRQn);
+
 }
 
 /* USER CODE BEGIN 2 */

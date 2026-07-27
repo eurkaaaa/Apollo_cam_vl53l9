@@ -147,6 +147,13 @@ SECTIONS
 	  __dcmipp_fb_end__ = .;
 	} > AXISRAM
 
+  .csi_buffer (NOLOAD) :
+  {
+    . = ALIGN(32);
+    KEEP(*simple_ranging_csi.o(.bss.g_csi_output_buffer))
+    . = ALIGN(32);
+  } >AXISRAM
+  
   .data :
   {
     . = ALIGN(4);

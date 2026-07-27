@@ -87,6 +87,7 @@ void Error_Handler(void);
 #define LED_GPIO_Port GPIOC
 #define INTR_Pin GPIO_PIN_0
 #define INTR_GPIO_Port GPIOD
+#define INTR_EXTI_IRQn EXTI0_IRQn
 #define SYNC_IN_Pin GPIO_PIN_8
 #define SYNC_IN_GPIO_Port GPIOE
 #define XSHUT_Pin GPIO_PIN_5

@@ -32,8 +32,12 @@ static int _timeout_expire(uint32_t to_start, uint32_t to_value) {
 }
 
 int platform_start_csi_pipe(uint8_t *buff_csi) {
+    // if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
+    //                                         DCMIPP_MODE_CONTINUOUS)) {
+    //     return -1;
+    // }
     if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
-                                            DCMIPP_MODE_CONTINUOUS)) {
+                                            DCMIPP_MODE_SNAPSHOT)) {
         return -1;
     }
     return 0;

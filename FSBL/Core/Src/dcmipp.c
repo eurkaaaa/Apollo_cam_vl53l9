@@ -24,7 +24,7 @@
 
 /* USER CODE END 0 */
 
-DCMIPP_HandleTypeDef hdcmipp;
+DCMIPP_HandleTypeDef hdcmipp_f;
 
 /* DCMIPP init function */
 void MX_DCMIPP_Init(void)
@@ -41,8 +41,8 @@ void MX_DCMIPP_Init(void)
   /* USER CODE BEGIN DCMIPP_Init 1 */
 
   /* USER CODE END DCMIPP_Init 1 */
-  hdcmipp.Instance = DCMIPP;
-  if (HAL_DCMIPP_Init(&hdcmipp) != HAL_OK)
+  hdcmipp_f.Instance = DCMIPP;
+  if (HAL_DCMIPP_Init(&hdcmipp_f) != HAL_OK)
   {
     Error_Handler();
   }
@@ -52,39 +52,39 @@ void MX_DCMIPP_Init(void)
   pCSI_PipeConfig.DataTypeMode = DCMIPP_DTMODE_DTIDA;
   pCSI_PipeConfig.DataTypeIDA = DCMIPP_DT_RAW8;
   pCSI_PipeConfig.DataTypeIDB = DCMIPP_DT_RAW8;
-  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &pCSI_PipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE0, &pCSI_PipeConfig) != HAL_OK)
   {
     Error_Handler();
   }
   pCSI_Config.PHYBitrate = DCMIPP_CSI_PHY_BT_800;
   pCSI_Config.DataLaneMapping = DCMIPP_CSI_INVERTED_DATA_LANES;
   pCSI_Config.NumberOfLanes = DCMIPP_CSI_TWO_DATA_LANES;
-  if (HAL_DCMIPP_CSI_SetConfig(&hdcmipp, &pCSI_Config) != HAL_OK)
+  if (HAL_DCMIPP_CSI_SetConfig(&hdcmipp_f, &pCSI_Config) != HAL_OK)
   {
     Error_Handler();
   }
   pPipeConfig.FrameRate = DCMIPP_FRAME_RATE_ALL;
   pPipeConfig.PixelPipePitch = 10;
   pPipeConfig.PixelPackerFormat = DCMIPP_PIXEL_PACKER_FORMAT_RGB888_YUV444_1;
-  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &pPipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE0, &pPipeConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  HAL_DCMIPP_CSI_SetVCConfig(&hdcmipp, 0U, DCMIPP_CSI_DT_BPP8);
+  HAL_DCMIPP_CSI_SetVCConfig(&hdcmipp_f, 0U, DCMIPP_CSI_DT_BPP8);
 
   /** Pipe 1 Config
   */
   pCSI_PipeConfig.DataTypeIDA = DCMIPP_DT_RGB565;
   pCSI_PipeConfig.DataTypeIDB = DCMIPP_DT_RGB666;
-  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE1, &pCSI_PipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE1, &pCSI_PipeConfig) != HAL_OK)
   {
     Error_Handler();
   }
   pCSI_Config.DataLaneMapping = DCMIPP_CSI_PHYSICAL_DATA_LANES;
   pCSI_Config.NumberOfLanes = DCMIPP_CSI_ONE_DATA_LANE;
-  HAL_DCMIPP_CSI_SetConfig(&hdcmipp, &pCSI_Config);
+  HAL_DCMIPP_CSI_SetConfig(&hdcmipp_f, &pCSI_Config);
   pPipeConfig.PixelPipePitch = 480;
-  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE1, &pPipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE1, &pPipeConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -93,12 +93,12 @@ void MX_DCMIPP_Init(void)
   */
   pCSI_PipeConfig.DataTypeIDA = DCMIPP_DT_YUV420_8;
   pCSI_PipeConfig.DataTypeIDB = DCMIPP_DT_RGB565;
-  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE2, &pCSI_PipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_CSI_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE2, &pCSI_PipeConfig) != HAL_OK)
   {
     Error_Handler();
   }
   pPipeConfig.PixelPipePitch = 720;
-  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE2, &pPipeConfig) != HAL_OK)
+  if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp_f, DCMIPP_PIPE2, &pPipeConfig) != HAL_OK)
   {
     Error_Handler();
   }

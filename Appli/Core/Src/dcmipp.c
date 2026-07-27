@@ -56,16 +56,16 @@ void MX_DCMIPP_Init(void)
   {
     Error_Handler();
   }
-  pCSI_Config.PHYBitrate = DCMIPP_CSI_PHY_BT_800;
-  pCSI_Config.DataLaneMapping = DCMIPP_CSI_INVERTED_DATA_LANES;
-  pCSI_Config.NumberOfLanes = DCMIPP_CSI_TWO_DATA_LANES;
+  pCSI_Config.PHYBitrate = DCMIPP_CSI_PHY_BT_1000;
+  pCSI_Config.DataLaneMapping = DCMIPP_CSI_PHYSICAL_DATA_LANES;
+  pCSI_Config.NumberOfLanes = DCMIPP_CSI_ONE_DATA_LANE;
   if (HAL_DCMIPP_CSI_SetConfig(&hdcmipp, &pCSI_Config) != HAL_OK)
   {
     Error_Handler();
   }
   pPipeConfig.FrameRate = DCMIPP_FRAME_RATE_ALL;
-  pPipeConfig.PixelPipePitch = 10;
-  pPipeConfig.PixelPackerFormat = DCMIPP_PIXEL_PACKER_FORMAT_RGB888_YUV444_1;
+  pPipeConfig.PixelPipePitch = 112;
+  pPipeConfig.PixelPackerFormat = DCMIPP_PIXEL_PACKER_FORMAT_MONO_Y8_G8_1;
   if (HAL_DCMIPP_PIPE_SetConfig(&hdcmipp, DCMIPP_PIPE0, &pPipeConfig) != HAL_OK)
   {
     Error_Handler();
@@ -138,9 +138,9 @@ void HAL_DCMIPP_MspInit(DCMIPP_HandleTypeDef* dcmippHandle)
     __HAL_RCC_CSI_RELEASE_RESET();
 
     /* DCMIPP interrupt Init */
-    HAL_NVIC_SetPriority(DCMIPP_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(DCMIPP_IRQn, 0x07, 0);
     HAL_NVIC_EnableIRQ(DCMIPP_IRQn);
-    HAL_NVIC_SetPriority(CSI_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(CSI_IRQn, 0x07, 0);
     HAL_NVIC_EnableIRQ(CSI_IRQn);
   /* USER CODE BEGIN DCMIPP_MspInit 1 */
 

@@ -35,6 +35,7 @@
 #include "utils.h"
 #include "semperflash_drv.h"
 #include "semperflash_test.h"
+#include "interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,6 +71,8 @@ uint8_t csi_control = 0;
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))
 uint8_t frame_buffer0[FRAME_BYTES];
+
+extern volatile platform_event_t platform_evt;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -359,7 +362,13 @@ void system_init_post(void)
 
 void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe)
 {
-	  NbMainFrames++;
+    if (Pipe == DCMIPP_PIPE0) {
+        platform_evt |= PLATFORM_CAM_PIPE_FRAME_EVT;
+    }
+    if (Pipe == DCMIPP_PIPE1) {
+      NbMainFrames++;
+    }
+	  
 }
 
 void SystemClock_Config(void)
