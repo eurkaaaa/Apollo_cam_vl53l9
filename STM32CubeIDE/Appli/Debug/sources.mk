@@ -32,7 +32,7 @@ Application/User/Startup \
 Application/User/Test/src \
 Application/User/Third_Party/debug_print/src \
 Application/User/Third_Party/unity/src \
-Application/User/app/simple_ranging_csi \
+Application/User/app/simple_ranging \
 Application/User/interface/platform \
 Application/User/interface/vl53l9 \
 Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/algo \

@@ -116,6 +116,10 @@ int vl53l9_app() {
         handle_error();
     }
 
+    ret = platform_start_csi_pipe((uint8_t *)g_csi_output_buffer);
+    if (ret) {
+        handle_error();
+    }
     ret = vl53l9_start(p_dev);
     if (ret) {
         handle_error();
@@ -130,10 +134,7 @@ int vl53l9_app() {
     printf("\033[2J");
 
     while (1) {
-        ret = platform_start_csi_pipe((uint8_t *)g_csi_output_buffer);
-        if (ret) {
-            handle_error();
-        }
+
         ret_irq = platform_wait_for_event(PLATFORM_CAM_PIPE_FRAME_EVT, 1000);
         if (ret_irq == 0) {
             platform_acknowledge_event(PLATFORM_CAM_PIPE_FRAME_EVT);

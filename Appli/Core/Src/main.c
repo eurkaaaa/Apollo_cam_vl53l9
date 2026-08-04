@@ -66,7 +66,7 @@ DMA_HandleTypeDef handle_GPDMA1_Channel2;
 DMA_HandleTypeDef handle_GPDMA1_Channel1;
 DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
-uint8_t csi_control = 0;
+uint8_t csi_control = 1;
 
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))
@@ -170,13 +170,18 @@ int main(void)
     uint8_t ret = 0;
     ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE1, &dcmipp_conf, &pitch);
 
+//	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
+//	    {
+//	      Error_Handler();
+//	    }
+
     while(1)
     {
 //    	SCB_CleanInvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
-	    {
-	      Error_Handler();
-	    }
+	     if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
+	     {
+	       Error_Handler();
+	     }
 //	    SCB_InvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
 	    HAL_Delay(500);
     }

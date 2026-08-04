@@ -32,14 +32,14 @@ static int _timeout_expire(uint32_t to_start, uint32_t to_value) {
 }
 
 int platform_start_csi_pipe(uint8_t *buff_csi) {
-    // if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
-    //                                         DCMIPP_MODE_CONTINUOUS)) {
-    //     return -1;
-    // }
-    if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
-                                            DCMIPP_MODE_SNAPSHOT)) {
-        return -1;
-    }
+     if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
+                                             DCMIPP_MODE_CONTINUOUS)) {
+         return -1;
+     }
+//    if (HAL_OK != HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE0, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)buff_csi,
+//                                            DCMIPP_MODE_SNAPSHOT)) {
+//        return -1;
+//    }
     return 0;
 }
 
@@ -403,10 +403,18 @@ void HAL_I3C_CtrlRxCpltCallback(I3C_HandleTypeDef *hi3c) {
     platform_evt |= PLATFORM_I3C_DMA_RX_EVT;
 }
 
-void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) {
-    for (int i = 0; i < NB_DEVICES; i++) {
-        if (GPIO_Pin == device[i].intr.pin) {
-            platform_evt |= PLATFORM_GPIO_IT_EVT;
-        }
-    }
-}
+ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) {
+     for (int i = 0; i < NB_DEVICES; i++) {
+         if (GPIO_Pin == device[i].intr.pin) {
+             platform_evt |= PLATFORM_GPIO_IT_EVT;
+         }
+     }
+ }
+
+//void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
+//    for (int i = 0; i < NB_DEVICES; i++) {
+//        if (GPIO_Pin == device[i].intr.pin) {
+//            platform_evt |= PLATFORM_GPIO_IT_EVT;
+//        }
+//    }
+//}
