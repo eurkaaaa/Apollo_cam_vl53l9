@@ -34,7 +34,7 @@
 "./Application/User/Third_Party/unity/src/unity.o"
 "./Application/User/Third_Party/unity/src/unity_fixture.o"
 "./Application/User/Third_Party/unity/src/unity_memory.o"
-"./Application/User/app/simple_ranging/simple_ranging.o"
+"./Application/User/app/simple_ranging_csi/simple_ranging_csi.o"
 "./Application/User/interface/platform/platform_utils.o"
 "./Application/User/interface/vl53l9/vl53l9_device.o"
 "./Application/User/interface/vl53l9/vl53l9_platform.o"

@@ -62,11 +62,11 @@ static __IO uint32_t NbMainFrames = 0;
 static volatile uint8_t dcmipp_start_pending = 0;
 VD55G1_Ctx_t   VD55G1Obj;
 
-DMA_HandleTypeDef handle_GPDMA1_Channel2;
-DMA_HandleTypeDef handle_GPDMA1_Channel1;
-DMA_HandleTypeDef handle_GPDMA1_Channel0;
+// DMA_HandleTypeDef handle_GPDMA1_Channel2;
+// DMA_HandleTypeDef handle_GPDMA1_Channel1;
+// DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
-uint8_t csi_control = 1;
+uint8_t csi_control = 0;
 
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))
@@ -138,7 +138,6 @@ int main(void)
 
   if(csi_control == 0)
   {
-
 	  HAL_GPIO_WritePin(CSI_SEL_GPIO_Port, CSI_SEL_Pin, RESET);
     HAL_Delay(200);
     CMW_CameraInit_t camera_init = {
@@ -178,7 +177,7 @@ int main(void)
     while(1)
     {
 //    	SCB_CleanInvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	     if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
+	     if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
 	     {
 	       Error_Handler();
 	     }
@@ -198,18 +197,6 @@ int main(void)
     HAL_Delay(50);
     HAL_GPIO_WritePin((GPIO_TypeDef *)XSHUT_GPIO_Port, XSHUT_Pin, GPIO_PIN_SET);
     HAL_Delay(50);
-
-//    while(1)
-//    {
-//    	uint32_t ret = HAL_I2C_IsDeviceReady(&hi2c2, VL53L9_DEFAULT_ADDRESS, 3, 1000);
-//    	if(ret != HAL_OK){
-//            HAL_I2C_DeInit(&hi2c2);
-//            HAL_Delay(10);
-//            MX_I2C2_Init();
-//    	}
-//    	HAL_Delay(100);
-//    }
-
 
      vl53l9_app();
   }
@@ -284,6 +271,7 @@ int main(void)
   HAL_RCC_MCOConfig(RCC_MCO2, RCC_MCO2SOURCE_HSI, RCC_MCODIV_5);
 /* USER CODE END RIF_Init 1 */
 /* USER CODE BEGIN RIF_Init 2 */
+//使能sram 时钟
   __HAL_RCC_AXISRAM1_MEM_CLK_ENABLE();
   __HAL_RCC_AXISRAM2_MEM_CLK_ENABLE();
   __HAL_RCC_AXISRAM3_MEM_CLK_ENABLE();
@@ -295,6 +283,7 @@ int main(void)
 }
 
 /* USER CODE BEGIN 4 */
+//
 static uint32_t get_risaf_max_addr(RISAF_TypeDef *risaf)
 {
   uint32_t max_addr = 0U;
@@ -342,10 +331,10 @@ void RISAF_Config(void)
   */
   set_risaf_default(RISAF2_S);          /* SRAM1_AXI */
   set_risaf_default(RISAF3_S);          /* SRAM2_AXI */
-  
   set_risaf_default(RISAF6_S);          /* SRAM3,4,5,6_AXI */
 }
 
+//使能SRAM总线访问
 void system_init_post(void)
 {  
   __HAL_RCC_SYSCFG_CLK_ENABLE();
@@ -354,7 +343,6 @@ void system_init_post(void)
   /* Enable NPU RAMs (4x448KB) + CACHEAXI */
   RCC->MEMENR |= RCC_MEMENR_AXISRAM3EN | RCC_MEMENR_AXISRAM4EN | RCC_MEMENR_AXISRAM5EN | RCC_MEMENR_AXISRAM6EN;
 //  RCC->MEMENR |= RCC_MEMENR_CACHEAXIRAMEN; // RCC_MEMENR_NPUCACHERAMEN;
-  
   RAMCFG_SRAM2_AXI->CR &= ~RAMCFG_CR_SRAMSD;
   RAMCFG_SRAM3_AXI->CR &= ~RAMCFG_CR_SRAMSD;
   RAMCFG_SRAM4_AXI->CR &= ~RAMCFG_CR_SRAMSD;
@@ -365,6 +353,7 @@ void system_init_post(void)
   MEMSYSCTL->MSCR |= MEMSYSCTL_MSCR_DCACTIVE_Msk | MEMSYSCTL_MSCR_ICACTIVE_Msk;
 }
 
+//帧完成中断处理
 void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe)
 {
     if (Pipe == DCMIPP_PIPE0) {

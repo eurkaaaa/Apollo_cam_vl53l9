@@ -22,7 +22,7 @@ RM := rm -rf
 -include Application/User/lib/transform/vl53l9-transform-c/vl53l9-transform-c-lib/src/subdir.mk
 -include Application/User/interface/vl53l9/subdir.mk
 -include Application/User/interface/platform/subdir.mk
--include Application/User/app/simple_ranging/subdir.mk
+-include Application/User/app/simple_ranging_csi/subdir.mk
 -include Application/User/Third_Party/unity/src/subdir.mk
 -include Application/User/Third_Party/debug_print/src/subdir.mk
 -include Application/User/Test/src/subdir.mk
