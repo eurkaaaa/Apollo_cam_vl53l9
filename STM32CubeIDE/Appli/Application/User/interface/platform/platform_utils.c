@@ -411,10 +411,3 @@ void HAL_I3C_CtrlRxCpltCallback(I3C_HandleTypeDef *hi3c) {
      }
  }
 
-//void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
-//    for (int i = 0; i < NB_DEVICES; i++) {
-//        if (GPIO_Pin == device[i].intr.pin) {
-//            platform_evt |= PLATFORM_GPIO_IT_EVT;
-//        }
-//    }
-//}

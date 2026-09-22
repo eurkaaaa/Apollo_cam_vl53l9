@@ -36,6 +36,7 @@
 #include "semperflash_drv.h"
 #include "semperflash_test.h"
 #include "interface.h"
+#include "apollo_video.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,12 +62,13 @@ ISP_HandleTypeDef  hcamera_isp;
 static __IO uint32_t NbMainFrames = 0;
 static volatile uint8_t dcmipp_start_pending = 0;
 VD55G1_Ctx_t   VD55G1Obj;
+static ApolloVideoDevice_t camera_video;
 
 // DMA_HandleTypeDef handle_GPDMA1_Channel2;
 // DMA_HandleTypeDef handle_GPDMA1_Channel1;
 // DMA_HandleTypeDef handle_GPDMA1_Channel0;
 
-uint8_t csi_control = 0;
+uint8_t csi_control = 1;
 
 __attribute__((section(".dcmipp_framebuffer")))
 __attribute__((aligned(32)))
@@ -153,36 +155,43 @@ int main(void)
     HAL_GPIO_WritePin(XSHUTDOWN_GPIO_Port, XSHUTDOWN_Pin, SET);
     HAL_Delay(200);
 
-    CMW_CAMERA_Init(&camera_init);
+    ApolloVideoFormat_t camera_format = {
+      .width = FRAME_W,
+      .height = FRAME_H,
+      .dcmipp_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1,
+      .bytes_per_pixel = BYTES_PER_PIXEL,
+      .aspect_ratio = CMW_Aspect_ratio_crop,
+      .enable_swap = 0U,
+      .enable_gamma_conversion = 0U
+    };
 
-    CMW_Aspect_Ratio_Mode_t aspect_ratio = CMW_Aspect_ratio_crop;
-    CMW_DCMIPP_Conf_t dcmipp_conf = {0};
-
-    dcmipp_conf.output_width = FRAME_W;
-    dcmipp_conf.output_height = FRAME_H;
-    dcmipp_conf.output_format = DCMIPP_PIXEL_PACKER_FORMAT_RGB565_1;
-    dcmipp_conf.output_bpp = 2;
-    dcmipp_conf.mode = aspect_ratio;
-    dcmipp_conf.enable_gamma_conversion = 0;
-
-    uint32_t pitch;
-    uint8_t ret = 0;
-    ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE1, &dcmipp_conf, &pitch);
-
-//	    if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
-//	    {
-//	      Error_Handler();
-//	    }
+    if ((ApolloVideo_Open(&camera_video, DCMIPP_PIPE1, &camera_init) != APOLLO_VIDEO_OK) ||
+        (ApolloVideo_SetFormat(&camera_video, &camera_format) != APOLLO_VIDEO_OK) ||
+        (ApolloVideo_RequestBuffers(&camera_video, 1U) != APOLLO_VIDEO_OK) ||
+        (ApolloVideo_QueueBuffer(&camera_video, 0U, frame_buffer0, sizeof(frame_buffer0)) != APOLLO_VIDEO_OK) ||
+        (ApolloVideo_StreamOn(&camera_video) != APOLLO_VIDEO_OK))
+    {
+      Error_Handler();
+    }
 
     while(1)
     {
-//    	SCB_CleanInvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	     if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 , buffer_addr, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
-	     {
-	       Error_Handler();
-	     }
-//	    SCB_InvalidateDCache_by_Addr((uint32_t *)BUFFER_ADDRESS_0, FRAME_BYTES);
-	    HAL_Delay(500);
+      uint32_t completed_index;
+
+      if (ApolloVideo_Service(&camera_video) != APOLLO_VIDEO_OK)
+      {
+        Error_Handler();
+      }
+
+      if (ApolloVideo_DequeueBuffer(&camera_video, &completed_index, NULL, NULL, NULL) == APOLLO_VIDEO_OK)
+      {
+        /* Process frame_buffer0 here while the application owns it. */
+        if (ApolloVideo_QueueBuffer(&camera_video, completed_index, frame_buffer0,
+                                    sizeof(frame_buffer0)) != APOLLO_VIDEO_OK)
+        {
+          Error_Handler();
+        }
+      }
     }
   }
 
@@ -361,6 +370,7 @@ void HAL_DCMIPP_PIPE_FrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t 
     }
     if (Pipe == DCMIPP_PIPE1) {
       NbMainFrames++;
+      ApolloVideo_OnFrameDone(&camera_video, Pipe);
     }
 	  
 }

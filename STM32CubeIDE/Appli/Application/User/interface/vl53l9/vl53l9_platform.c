@@ -244,7 +244,7 @@ int vl53l9_write(void *const p_dev, uint16_t address, uint8_t *p_values, uint32_
     }
 
     /* ================= 分包配置 ================= */
-    #define CHUNK_SIZE  64U  // I3C 可酌情调大到 128/256
+    #define CHUNK_SIZE  32U  // I3C 可酌情调大到 128/256
     uint32_t offset = 0;
 
     /* ================= I2C 路径（保留原逻辑+分包） ================= */
@@ -253,7 +253,7 @@ int vl53l9_write(void *const p_dev, uint16_t address, uint8_t *p_values, uint32_
             uint32_t chunk = (size - offset > CHUNK_SIZE) ? CHUNK_SIZE : (size - offset);
             if (HAL_I2C_Mem_Write(p_device->bus, p_device->address,
                                   address + offset, I2C_MEMADD_SIZE_16BIT,
-                                  p_values + offset, chunk, HAL_MAX_DELAY) != HAL_OK) {
+                                  p_values + offset, chunk, 100) != HAL_OK) {
                 return VL53L9_ERROR_PLATFORM;
             }
             offset += chunk;

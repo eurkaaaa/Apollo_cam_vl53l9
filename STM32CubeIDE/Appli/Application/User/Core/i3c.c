@@ -21,11 +21,11 @@
 #include "i3c.h"
 
 /* USER CODE BEGIN 0 */
-// extern DMA_HandleTypeDef handle_GPDMA1_Channel2;
+extern DMA_HandleTypeDef handle_GPDMA1_Channel2;
 
-// extern DMA_HandleTypeDef handle_GPDMA1_Channel1;
+extern DMA_HandleTypeDef handle_GPDMA1_Channel1;
 
-// extern DMA_HandleTypeDef handle_GPDMA1_Channel0;
+extern DMA_HandleTypeDef handle_GPDMA1_Channel0;
 /* USER CODE END 0 */
 
 I3C_HandleTypeDef hi3c2;
